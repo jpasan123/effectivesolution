@@ -13,6 +13,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'EffectiveSolutions - Software Development Company',
   description: 'Leading software development company providing innovative solutions',
+  icons: [
+    { rel: 'icon', url: '/icon.png' },
+    { rel: 'apple-touch-icon', url: '/icon.png' }
+  ]
 };
 
 export default function RootLayout({
