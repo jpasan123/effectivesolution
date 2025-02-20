@@ -85,7 +85,6 @@ export function Header() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="hidden sm:block"
             >
               <h1 className={cn(
                 "text-xl font-bold",

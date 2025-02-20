@@ -11,7 +11,7 @@ interface Message {
 }
 
 const predefinedQA = [
-  { question: "What is Effective Solution?", answer: "Effective Solution is a company that provides innovative tech solutions to businesses." },
+  { question: "What is Effective Solution", answer: "Effective Solution is a company that provides innovative tech solutions to businesses." },
   { question: "What services do you offer?", answer: "We offer web development, mobile app development, and cloud solutions." },
   { question: "Where are you located?", answer: "We are located in San Francisco, California." },
   { question: "How can I contact you?", answer: "You can contact us via email at contact@effectivesolution.com or call us at (123) 456-7890." },
