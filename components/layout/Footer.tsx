@@ -53,7 +53,7 @@ export function Footer() {
               <li>Bay X, Trace Expert City</li>
               <li>Maradana Road</li>
               <li>Colombo 10, Sri Lanka</li>
-              <li>Phone: (+94) 11 123 4567</li>
+              <li>Phone: 076 621 0120</li>
               <li>Email: info@effectivesolutions.com</li>
             </ul>
           </div>
