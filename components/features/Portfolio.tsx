@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { products } from '@/lib/portfolio-data';
 
-const categories = ['All', 'Web', 'Mobile', 'Cloud'];
+const categories = ['All', 'Web', 'Mobile', 'IoT'];
 
 export function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');

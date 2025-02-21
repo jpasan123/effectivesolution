@@ -31,161 +31,161 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  {
-    title: 'Route Radar',
-    category: 'Mobile',
-    slug: 'route-radar',
-    description: 'Advanced mobile tracking platform for real-time vehicle monitoring and fleet management',
-    heroImage: 'https://i.ibb.co/N2mR2Bj7/route-radar-icon.png',
-    heroVideo: '/videos/humble-beginning.mp4',
-    overview: [
-      'Route Radar provides advanced mobile tracking for devices ranging from basic phones to GPS systems.',
-      'Users can monitor routes, generate reports, and analyze movement patterns.'
-    ],
-    features: [
-      {
-        iconName: 'MapPin',
-        title: 'Real-Time Tracking',
-        description: 'Monitor devices live on Google Maps.',
-        icon: undefined
-      },
-      {
-        iconName: 'BarChart',
-        title: 'Route Analysis',
-        description: 'Analyze movement patterns for optimization.',
-        icon: undefined
-      }
-    ],
-    screenshots: [
-      {
-        image: 'https://i.ibb.co/yBcJcT9h/Whats-App-Image-2025-02-11-at-15-17-16-1404c7a1.jpg',
-        caption: 'Live Tracking Dashboard'
-      },
-      {
-        image: 'https://i.ibb.co/cchQJk0C/Whats-App-Image-2025-02-11-at-15-19-14-273b8065.jpg',
-        caption: 'Analytics and Reporting'
-      },
-      {
-        image: 'https://i.ibb.co/d4gST7S8/Whats-App-Image-2025-02-11-at-15-19-14-f2daf10c.jpg',
-        caption: 'Mobile Application'
-      },
-      {
-        image: 'https://i.ibb.co/20TrFnNW/Whats-App-Image-2025-02-11-at-15-19-39-f5deac84.jpg',
-        caption: 'Alert Management'
-      }
-    ],
-    technologies: [
-      'React Native',
-      'Node.js',
-      'MongoDB',
-      'Socket.io',
-      'Google Maps API',
-      'AWS'
-    ],
-    demoUrl: 'https://routeradar.effectivesolutions.lk',
-    stats: [
-      {
-        label: 'Active Users',
-        value: '1000+',
-        percentage: 95
-      },
-      {
-        label: 'Tracking Accuracy',
-        value: '99.9%',
-        percentage: 99.9
-      },
-      {
-        label: 'Uptime',
-        value: '99.99%',
-        percentage: 99.99
-      }
-    ]
-  },
-  {
-    title: 'ePro1000',
-    category: 'Cloud',
-    slug: 'epro-1000',
-    description: 'Smart energy monitoring system for real-time power consumption tracking',
-    heroImage: 'https://i.ibb.co/23BPCKg9/Whats-App-Image-2025-02-11-at-11-59-22-0a742ba0.jpg',
-    heroVideo: '/videos/epro-1000.mp4',
-    overview: [
-      'ePro1000 is an innovative IoT platform developed by JLanka Technologies that enables remote monitoring of power consumption for electrical devices connected to the grid. This smart energy monitoring system provides real-time insights and analytics to help businesses and individuals optimize their energy usage.',
-      'The system combines hardware sensors with a sophisticated web application to deliver detailed visualization of energy consumption patterns, cost analysis, and predictive maintenance alerts. ePro1000 is designed to help users reduce energy costs and maintain efficient operations.'
-    ],
-    features: [
-      {
-        iconName: 'Zap',
-        title: 'Power Monitoring',
-        description: 'Real-time monitoring of power consumption with instant alerts',
-        icon: undefined
-      },
-      {
-        iconName: 'Activity',
-        title: 'Usage Analytics',
-        description: 'Detailed analysis of energy usage patterns and trends',
-        icon: undefined
-      },
-      {
-        iconName: 'Cloud',
-        title: 'Cloud Platform',
-        description: 'Secure cloud-based data storage and processing',
-        icon: undefined
-      },
-      {
-        iconName: 'Wifi',
-        title: 'Remote Access',
-        description: 'Monitor and control devices from anywhere',
-        icon: undefined
-      }
-    ],
-    screenshots: [
-      {
-        image: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80',
-        caption: 'Energy Monitoring Dashboard'
-      },
-      {
-        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80',
-        caption: 'Usage Analytics'
-      },
-      {
-        image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80',
-        caption: 'Device Management'
-      },
-      {
-        image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80',
-        caption: 'Reports and Insights'
-      }
-    ],
-    technologies: [
-      'React',
-      'Node.js',
-      'PostgreSQL',
-      'MQTT',
-      'TensorFlow',
-      'AWS IoT'
-    ],
-    demoUrl: 'https://epro.jlankatechnologies.com',
-    stats: [
-      {
-        label: 'Devices Monitored',
-        value: '5000+',
-        percentage: 92
-      },
-      {
-        label: 'Energy Savings',
-        value: '30%',
-        percentage: 85
-      },
-      {
-        label: 'Data Accuracy',
-        value: '99.9%',
-        percentage: 99.9
-      }
-    ]
-  },
-  {
+  // {
+  //   title: 'Route Radar',
+  //   category: 'Mobile',
+  //   slug: 'route-radar',
+  //   description: 'Advanced mobile tracking platform for real-time vehicle monitoring and fleet management',
+  //   heroImage: 'https://i.ibb.co/N2mR2Bj7/route-radar-icon.png',
+  //   heroVideo: '/videos/humble-beginning.mp4',
+  //   overview: [
+  //     'Route Radar provides advanced mobile tracking for devices ranging from basic phones to GPS systems.',
+  //     'Users can monitor routes, generate reports, and analyze movement patterns.'
+  //   ],
+  //   features: [
+  //     {
+  //       iconName: 'MapPin',
+  //       title: 'Real-Time Tracking',
+  //       description: 'Monitor devices live on Google Maps.',
+  //       icon: undefined
+  //     },
+  //     {
+  //       iconName: 'BarChart',
+  //       title: 'Route Analysis',
+  //       description: 'Analyze movement patterns for optimization.',
+  //       icon: undefined
+  //     }
+  //   ],
+  //   screenshots: [
+  //     {
+  //       image: 'https://i.ibb.co/yBcJcT9h/Whats-App-Image-2025-02-11-at-15-17-16-1404c7a1.jpg',
+  //       caption: 'Live Tracking Dashboard'
+  //     },
+  //     {
+  //       image: 'https://i.ibb.co/cchQJk0C/Whats-App-Image-2025-02-11-at-15-19-14-273b8065.jpg',
+  //       caption: 'Analytics and Reporting'
+  //     },
+  //     {
+  //       image: 'https://i.ibb.co/d4gST7S8/Whats-App-Image-2025-02-11-at-15-19-14-f2daf10c.jpg',
+  //       caption: 'Mobile Application'
+  //     },
+  //     {
+  //       image: 'https://i.ibb.co/20TrFnNW/Whats-App-Image-2025-02-11-at-15-19-39-f5deac84.jpg',
+  //       caption: 'Alert Management'
+  //     }
+  //   ],
+  //   technologies: [
+  //     'React Native',
+  //     'Node.js',
+  //     'MongoDB',
+  //     'Socket.io',
+  //     'Google Maps API',
+  //     'AWS'
+  //   ],
+  //   demoUrl: 'https://routeradar.effectivesolutions.lk',
+  //   stats: [
+  //     {
+  //       label: 'Active Users',
+  //       value: '1000+',
+  //       percentage: 95
+  //     },
+  //     {
+  //       label: 'Tracking Accuracy',
+  //       value: '99.9%',
+  //       percentage: 99.9
+  //     },
+  //     {
+  //       label: 'Uptime',
+  //       value: '99.99%',
+  //       percentage: 99.99
+  //     }
+  //   ]
+  // },
+  // {
+  //   title: 'ePro1000',
+  //   category: 'Cloud',
+  //   slug: 'epro-1000',
+  //   description: 'Smart energy monitoring system for real-time power consumption tracking',
+  //   heroImage: 'https://i.ibb.co/23BPCKg9/Whats-App-Image-2025-02-11-at-11-59-22-0a742ba0.jpg',
+  //   heroVideo: '/videos/epro-1000.mp4',
+  //   overview: [
+  //     'ePro1000 is an innovative IoT platform developed by JLanka Technologies that enables remote monitoring of power consumption for electrical devices connected to the grid. This smart energy monitoring system provides real-time insights and analytics to help businesses and individuals optimize their energy usage.',
+  //     'The system combines hardware sensors with a sophisticated web application to deliver detailed visualization of energy consumption patterns, cost analysis, and predictive maintenance alerts. ePro1000 is designed to help users reduce energy costs and maintain efficient operations.'
+  //   ],
+  //   features: [
+  //     {
+  //       iconName: 'Zap',
+  //       title: 'Power Monitoring',
+  //       description: 'Real-time monitoring of power consumption with instant alerts',
+  //       icon: undefined
+  //     },
+  //     {
+  //       iconName: 'Activity',
+  //       title: 'Usage Analytics',
+  //       description: 'Detailed analysis of energy usage patterns and trends',
+  //       icon: undefined
+  //     },
+  //     {
+  //       iconName: 'Cloud',
+  //       title: 'Cloud Platform',
+  //       description: 'Secure cloud-based data storage and processing',
+  //       icon: undefined
+  //     },
+  //     {
+  //       iconName: 'Wifi',
+  //       title: 'Remote Access',
+  //       description: 'Monitor and control devices from anywhere',
+  //       icon: undefined
+  //     }
+  //   ],
+  //   screenshots: [
+  //     {
+  //       image: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80',
+  //       caption: 'Energy Monitoring Dashboard'
+  //     },
+  //     {
+  //       image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80',
+  //       caption: 'Usage Analytics'
+  //     },
+  //     {
+  //       image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80',
+  //       caption: 'Device Management'
+  //     },
+  //     {
+  //       image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80',
+  //       caption: 'Reports and Insights'
+  //     }
+  //   ],
+  //   technologies: [
+  //     'React',
+  //     'Node.js',
+  //     'PostgreSQL',
+  //     'MQTT',
+  //     'TensorFlow',
+  //     'AWS IoT'
+  //   ],
+  //   demoUrl: 'https://epro.jlankatechnologies.com',
+  //   stats: [
+  //     {
+  //       label: 'Devices Monitored',
+  //       value: '5000+',
+  //       percentage: 92
+  //     },
+  //     {
+  //       label: 'Energy Savings',
+  //       value: '30%',
+  //       percentage: 85
+  //     },
+  //     {
+  //       label: 'Data Accuracy',
+  //       value: '99.9%',
+  //       percentage: 99.9
+  //     }
+  //   ]
+  // },
+   {
     title: 'Ananke IoT Platform',
-    category: 'Cloud',
+    category: 'IoT',
     slug: 'ananke',
     description: 'Ananke is our flagship IoT platform',
     heroImage: 'https://i.ibb.co/C3gpg3NR/Whats-App-Image-2025-02-11-at-11-59-23-030bc0f4.jpg',
