@@ -23,21 +23,7 @@ const team = [
       'Founded Effective Solutions (Pvt) Ltd and handled many projects under Effective Solutions.'
     ]
   },
-  {
-    name: 'Darshana Priyankara',
-    role: 'Directer',
-    image: 'https://i.ibb.co/BVcQF90g/darshana.jpg',
-    education: 'BSc. Software Engineering',
-    title: 'Senior Lead Developer',
-    linkedin: 'https://www.linkedin.com/in/mkdpriyankara/?originalSubdomain=lk',
-    email: 'darshana@example.com',
-    details: [
-      'Full-stack development expert with 8+ years experience',
-      'Specialized in React and Node.js development',
-      'Led development of 20+ enterprise applications',
-      'Active contributor to open-source projects'
-    ]
-  },
+  
   {
     name: 'Heminda Jayawardana',
     role: 'Director',
@@ -51,6 +37,21 @@ const team = [
       'Expertise in user research and usability testing',
       'Led design teams for Fortune 500 companies',
       'Speaker at international design conferences'
+    ]
+  },
+  {
+    name: 'Darshana Priyankara',
+    role: 'Senior Lead Developer',
+    image: 'https://i.ibb.co/BVcQF90g/darshana.jpg',
+    education: 'BSc. Software Engineering',
+    title: 'Senior Lead Developer',
+    linkedin: 'https://www.linkedin.com/in/mkdpriyankara/?originalSubdomain=lk',
+    email: 'darshana@example.com',
+    details: [
+      'Full-stack development expert with 8+ years experience',
+      'Specialized in React and Node.js development',
+      'Led development of 20+ enterprise applications',
+      'Active contributor to open-source projects'
     ]
   },
   {

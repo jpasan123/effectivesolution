@@ -3,6 +3,22 @@
 import { motion } from 'framer-motion';
 import { Lock, Check } from 'lucide-react';
 
+// Example header navigation items
+const navItems = {
+  terms: [
+    { href: '#acceptance', label: 'Acceptance' },
+    { href: '#services', label: 'Services' },
+    { href: '#obligations', label: 'Obligations' },
+    // ... other items
+  ],
+  privacy: [
+    { href: '#collection', label: 'Collection' },
+    { href: '#usage', label: 'Usage' },
+    { href: '#sharing', label: 'Sharing' },
+    // ... other items
+  ]
+};
+
 export default function PrivacyPolicy() {
   return (
     <div className="pt-32 pb-20">
