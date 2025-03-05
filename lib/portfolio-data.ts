@@ -281,7 +281,7 @@ export const products: Product[] = [
     ]
   },
   {
-    title: 'SriLanka Etrafic mobiile App',
+    title: 'SriLanka Etraffic mobiile App',
     category: 'Mobile',
     slug: 'etrafic', // Already lowercase, this is correct
     description: 'Sri Lanka Traffic Police mobile app for traffic management and incident reporting',
