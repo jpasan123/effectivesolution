@@ -2,24 +2,24 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingScreen from './hooks/LoadingScreen';
 import './App.css';
-import Navigation from './Components/Navigation/navigation';
-import Hero from './Components/Hero/hero';
-import TrustedBy from './Components/Trustedby/TrustedBy';
-import WhatWeDo from './Components/What-we-Do/WhatWeDo';
-import OurClients from './Components/Clients/OurClients';
-import FeaturedProject from './Components/Featuredprojects/FeaturedProjects';
-import WhyChooseUs from './Components/Whychooseus/WhyChooseUs';
-import CallToAction from './Components/CallToAction/CallToAction';
-import Footer from './Components/Footer/Footer';
+import Navigation from './components/Navigation/navigation';
+import Hero from './components/Hero/hero';
+import TrustedBy from './components/Trustedby/TrustedBy';
+import WhatWeDo from './components/What-we-Do/WhatWeDo';
+import OurClients from './components/Clients/OurClients';
+import FeaturedProject from './components/Featuredprojects/FeaturedProjects';
+import WhyChooseUs from './components/Whychooseus/WhyChooseUs';
+import CallToAction from './components/CallToAction/CallToAction';
+import Footer from './components/Footer/Footer';
 import AboutUs from './Pages/About/AboutUs';
 import Service from './Pages/Services/Services';
 // import ProjectsPage from './Pages/Projects/Projects';
 import Blog from './Pages/Blogs/Blogs';
 import Careers from './Pages/Careers/Career';
 
-import Gallery from './Components/Gallery/Gallery';
+import Gallery from './components/Gallery/Gallery';
 
-import ScrollToTop from './Components/ScrollToTop';
+import ScrollToTop from './components/ScrollToTop';
 
 
 // create page components
