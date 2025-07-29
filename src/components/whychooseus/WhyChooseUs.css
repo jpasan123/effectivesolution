@@ -1,0 +1,162 @@
+/* WhyChooseUs.css - Browser-Compatible Hover Effects */
+
+/* Reset default card styles to ensure proper hover */
+.benefit-card {
+  position: relative;
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  /* Basic transition for older browsers */
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  /* Modern transition with will-change */
+  will-change: transform, box-shadow;
+}
+
+/* Ensure card has visual boundaries */
+.benefit-card {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid #eaeaea;
+}
+
+/* Base Hover Effect - Works even if transforms fail */
+.benefit-card:hover {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* Modern Browsers - Enhanced Effects */
+@supports (transform: translateY(0)) and (will-change: transform) {
+  .benefit-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  }
+  
+  .benefit-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .benefit-card:hover .benefit-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  }
+  
+  .benefit-content {
+    transition: transform 0.3s ease 0.1s;
+  }
+  
+  .benefit-card:hover .benefit-content {
+    transform: translateY(-5px);
+  }
+  
+  /* Top border animation */
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4a88b5, #2c5f7a);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease;
+  }
+  
+  .benefit-card:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+/* Fallback for older browsers */
+@supports not (transform: translateY(0)) {
+  .benefit-card:hover {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Ensure content is properly structured */
+.benefit-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile hover fixes */
+@media (hover: none) {
+  .benefit-card:hover {
+    transform: none !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+  }
+  
+  .benefit-card:hover .benefit-icon {
+    transform: none !important;
+  }
+  
+  .benefit-card:hover .benefit-content {
+    transform: none !important;
+  }
+  
+  .benefit-card::before {
+    display: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .why-choose-us-section {
+    padding: 80px 0;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .benefit-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-choose-us-section {
+    padding: 60px 0;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .benefit-card {
+    padding: 25px 15px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .benefit-card,
+  .benefit-icon,
+  .benefit-content {
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  .benefit-card::before {
+    display: none;
+  }
+  
+  .benefit-card:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+  }
+}

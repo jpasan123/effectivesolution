@@ -1,0 +1,324 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Scrollbar styling for development */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Main Gallery Container - Removed padding that causes white space */
+.gallery-container {
+  width: 100%;
+  position: relative;
+  padding-top: 80px; /* Gap from above section */
+  margin-bottom: 60px; /* Gap to below section */
+  /* Remove any horizontal padding/margin */
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+  animation: fadeIn 1s ease 0.5s both;
+}
+
+.control-btn {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn.active {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+/* Scroll Container - Remove all padding/margin that causes white space */
+.scroll-container {
+  width: 100vw;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 1s ease both;
+  margin: 0; /* Remove all margins */
+  padding: 0; /* Remove all padding */
+  margin-top: 40px; /* Only top margin for spacing from above */
+  /* Ensure it starts from absolute left edge */
+  margin-left: calc(-50vw + 50%);
+  width: 100vw;
+}
+
+.scroll-track {
+  display: flex;
+  animation: scroll 60s linear infinite; /* Average comfortable speed */
+  height: 100%;
+  will-change: transform;
+  /* Make track wide enough for seamless infinite scroll */
+  width: max-content;
+  /* No initial transform - let animation handle positioning */
+}
+
+/* Speed variations - Balanced average speeds */
+.speed-slow .scroll-track {
+  animation-duration: 80s; /* 1.3 minutes - relaxed but not too slow */
+}
+
+.speed-normal .scroll-track {
+  animation-duration: 60s; /* 1 minute - perfect average speed */
+}
+
+.speed-fast .scroll-track {
+  animation-duration: 45s; /* 45 seconds - faster but still comfortable */
+}
+
+/* Pause animation on hover */
+.scroll-container:hover .scroll-track {
+  animation-play-state: paused;
+}
+
+/* Image Items - Fixed for continuous loop */
+.image-item {
+  flex-shrink: 0;
+  width: 350px;
+  height: 280px;
+  margin-right: 25px; /* Consistent spacing between all images */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.image-item:hover {
+  transform: scale(1.05) translateY(-15px); /* Slightly more hover effect */
+  z-index: 10;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+.image-item:active {
+  transform: scale(1.02) translateY(-8px);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.image-item:hover img {
+  transform: scale(1.08); /* Slightly less zoom to maintain quality */
+}
+
+/* Image Overlay */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 20px; /* Increased padding for larger images */
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-item:hover .image-overlay {
+  transform: translateY(0);
+}
+
+.image-title {
+  font-size: 16px; /* Increased font size */
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.image-description {
+  font-size: 14px; /* Increased font size */
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: white;
+  animation: fadeIn 0.3s ease;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+
+.loading-overlay p {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* Animations - Fixed for seamless continuous loop */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-container {
+    padding-top: 60px;
+    margin-bottom: 40px;
+  }
+  
+  .controls {
+    top: 10px;
+    right: 10px;
+    gap: 5px;
+  }
+  
+  .control-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .scroll-container {
+    height: 320px; /* Proportionally smaller on mobile */
+    margin-top: 30px;
+  }
+  
+  .image-item {
+    width: 280px; /* Smaller but still larger than before */
+    height: 220px;
+    margin-right: 20px;
+  }
+  
+  .image-title {
+    font-size: 14px;
+  }
+  
+  .image-description {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    padding-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .scroll-container {
+    height: 280px;
+    margin-top: 20px;
+  }
+  
+  .image-item {
+    width: 240px;
+    height: 180px;
+    margin-right: 15px;
+  }
+  
+  .image-title {
+    font-size: 13px;
+  }
+  
+  .image-description {
+    font-size: 11px;
+  }
+}
+
+/* Performance optimizations */
+.scroll-track {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.image-item {
+  backface-visibility: hidden;
+}
+
+/* Focus states for accessibility */
+.control-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.image-item:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 4px;
+}

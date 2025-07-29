@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingScreen from './hooks/LoadingScreen';
 import './App.css';
-import Navigation from './components/navigation/Navigation';
+import Navigation from './components/navigation/navigation';
 import Hero from './components/hero/hero';
 import TrustedBy from './components/trustedby/TrustedBy';
 import WhatWeDo from './components/whatwedo/WhatWeDo';
