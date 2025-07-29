@@ -247,7 +247,6 @@ const Careers = () => {
         maxWidth: isMobile ? '100%' : '48rem',
         margin: '0 auto',
         lineHeight: '1.6',
-        marginBottom: isMobile ? '1.5rem' : '2rem',
       },
 
       heroButtons: {
