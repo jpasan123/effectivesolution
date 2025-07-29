@@ -14,7 +14,7 @@ import Footer from './Components/Footer/Footer';
 import AboutUs from './Pages/About/AboutUs';
 import Service from './Pages/Services/Services';
 // import ProjectsPage from './Pages/Projects/Projects';
-import Blog from './Pages/Blogs/Blogs'
+import Blog from './Pages/Blogs/Blogs';
 import Careers from './Pages/Careers/Career';
 
 import Gallery from './Components/Gallery/Gallery';
