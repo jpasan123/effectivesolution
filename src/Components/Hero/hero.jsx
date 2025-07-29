@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Play } from 'lucide-react';
 import './hero.css';
-import calltoaction from '../CallToAction/CallToAction';
+import CallToAction from '../calltoaction/CallToAction';
 
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);

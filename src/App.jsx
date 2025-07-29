@@ -2,22 +2,22 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingScreen from './hooks/LoadingScreen';
 import './App.css';
-import Navigation from './components/Navigation/navigation';
-import Hero from './components/Hero/hero';
-import TrustedBy from './components/Trustedby/TrustedBy';
-import WhatWeDo from './components/What-we-Do/WhatWeDo';
-import OurClients from './components/Clients/OurClients';
-import FeaturedProject from './components/Featuredprojects/FeaturedProjects';
-import WhyChooseUs from './components/Whychooseus/WhyChooseUs';
-import CallToAction from './components/CallToAction/CallToAction';
-import Footer from './components/Footer/Footer';
-import AboutUs from './Pages/About/AboutUs';
-import Service from './Pages/Services/Services';
-// import ProjectsPage from './Pages/Projects/Projects';
-import Blog from './Pages/Blogs/Blogs';
-import Careers from './Pages/Careers/Career';
+import Navigation from './components/navigation/navigation';
+import Hero from './components/hero/hero';
+import TrustedBy from './components/trustedby/TrustedBy';
+import WhatWeDo from './components/whatwedo/WhatWeDo';
+import OurClients from './components/clients/OurClients';
+import FeaturedProject from './components/featuredprojects/FeaturedProjects';
+import WhyChooseUs from './components/whychooseus/WhyChooseUs';
+import CallToAction from './components/calltoaction/CallToAction';
+import Footer from './components/footer/Footer';
+import AboutUs from './pages/about/AboutUs';
+import Service from './pages/services/Services';
+// import ProjectsPage from './pages/projects/Projects';
+import Blog from './pages/blogs/Blogs';
+import Careers from './pages/careers/Career';
 
-import Gallery from './components/Gallery/Gallery';
+import Gallery from './components/gallery/Gallery';
 
 import ScrollToTop from './components/ScrollToTop';
 
