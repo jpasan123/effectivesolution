@@ -5,7 +5,7 @@ import './App.css';
 import Navigation from './Components/Navigation/navigation';
 import Hero from './Components/Hero/hero';
 import TrustedBy from './Components/Trustedby/TrustedBy';
-import Whatwedo from './Components/What-we-Do/Whatwedo';
+import WhatWeDo from './Components/What-we-Do/WhatWeDo';
 import OurClients from './Components/Clients/OurClients';
 import FeaturedProject from './Components/Featuredprojects/FeaturedProjects';
 import WhyChooseUs from './Components/Whychooseus/WhyChooseUs';
@@ -28,7 +28,7 @@ const HomePage = () => (
     <Hero />
     <Gallery/>
     <TrustedBy />
-    <Whatwedo />
+    <WhatWeDo />
     <OurClients />
     <FeaturedProject />
     <WhyChooseUs />
