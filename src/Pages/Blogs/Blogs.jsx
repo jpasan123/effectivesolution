@@ -8,7 +8,7 @@ import blog5 from './blog5.jpg';
 import blog6 from './blog6.jpg';
 import blog7 from './blog7.png';
 import blog8 from './blog8.jpg';
-import blog9 from '../About/WIPO3.jpeg';
+import blog9 from '../about/WIPO3.jpeg';
 
 const Blog = () => { 
   const [activeCategory, setActiveCategory] = useState('all');
