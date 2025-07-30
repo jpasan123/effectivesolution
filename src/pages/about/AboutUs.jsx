@@ -712,15 +712,14 @@ const handleCategoryClick = (category) => {
                 <Mail size={24} />
               </div>
               <h3>Email Us</h3>
-              <p>info@effectivesolutions.lk</p>
+              <p>careers@effetivesolutions.lk</p>
             </div>
-
             <div className="contact-card">
               <div className="contact-icon contact-icon-phone">
                 <Phone size={24} />
               </div>
               <h3>Call Us</h3>
-              <p>+94 11 234 5678</p>
+              <p>+94 76 621 0120 / +94 76 643 3975</p>
             </div>
 
             <div className="contact-card">
