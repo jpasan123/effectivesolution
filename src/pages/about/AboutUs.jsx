@@ -182,7 +182,7 @@ const AboutUs = () => {
       image: ceo
     },
     {
-      name: "Heminda Jayawardhana",
+      name: "Heminda Jayaweera",
       position: "Director",
       linkedin: "https://www.linkedin.com/in/heminda/",
       email: "#",
