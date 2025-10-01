@@ -159,7 +159,7 @@ const CallToAction = () => {
                 </div>
                 <div className="contact-text">
                   <span>Email us at</span>
-                  <strong>careers.effectivesolutions@gmail.com</strong>
+                  <strong>careers@effectivesolutions.lk</strong>
                 </div>
               </div>
             </div>
