@@ -712,7 +712,7 @@ const handleCategoryClick = (category) => {
                 <Mail size={24} />
               </div>
               <h3>Email Us</h3>
-              <p>info@effectivesolutions.lk</p>
+              <p>careers@effectivesolutions.lk</p>
             </div>
 
             <div className="contact-card">
