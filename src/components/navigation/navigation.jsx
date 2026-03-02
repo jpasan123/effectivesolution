@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; // Removed 'Send' icon import
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import logo from './effective-solutions.webp';
+import logo from '../../assets/effective-icon.png';
 import './navigation.css';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -40,9 +35,7 @@ const Navigation = () => {
     closeMenu();
   };
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  const isActive = (path) => location.pathname === path;
 
   const handleHomeClick = (e) => {
     if (location.pathname === '/') {
@@ -55,14 +48,14 @@ const Navigation = () => {
   const handleContactClick = (e) => {
     e.preventDefault();
     if (location.pathname === '/') {
-      scrollToSection('call-to-action-section');
+      scrollToSection('contact');
     } else {
-      window.location.href = '/#call-to-action-section';
+      // Navigate to home and include state so Home can scroll to the contact section
+      navigate('/', { state: { scrollTo: 'contact' } });
     }
     closeMenu();
   };
 
-  // Navigation items configuration
   const navItems = [
     { path: '/', label: 'Home', onClick: handleHomeClick },
     { path: '/about', label: 'About', onClick: closeMenu },
@@ -75,15 +68,15 @@ const Navigation = () => {
     <nav className={`navigation ${isScrolled ? 'navigation--scrolled' : ''}`}>
       <div className="navigation__container">
         <div className="navigation__content">
-          {/* Logo */}
-          {/* Logo */}
-    <Link to="/" className="navigation__logo" onClick={closeMenu}>
-      <img className='logo' src={logo} alt="effective solutions logo"/>
-      <span className="logo__text">
-        <span className="logo__text--blue">EFFECTIVE</span>
-        <span className="logo__text--gray">SOLUTIONS</span>
-      </span>
-    </Link>
+          
+          {/* Logo Section */}
+          <Link to="/" className="navigation__logo" onClick={closeMenu}>
+            <img className='logo' src={logo} alt="effective solutions logo"/>
+            <span className="logo__text">
+              <span className="logo__text--main">Effective</span>
+              <span className="logo__text--sub">Solutions</span>
+            </span>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="navigation__menu">
@@ -99,18 +92,18 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop Contact Info */}
+          {/* Desktop Contact - Text Only Pill Button */}
           <div className="navigation__contact">
             <button 
-              className="navigation__contact-icon"
+              className="navigation__contact-link"
               onClick={handleContactClick}
               aria-label="Contact us"
             >
-              <Phone size={20} />
+              Contact
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button 
             className="navigation__mobile-toggle"
             onClick={toggleMenu}
@@ -120,7 +113,7 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         <div className={`navigation__mobile ${isMenuOpen ? 'navigation__mobile--open' : ''}`}>
           <div className="navigation__mobile-content">
             {navItems.map((item) => (
@@ -134,29 +127,17 @@ const Navigation = () => {
               </Link>
             ))}
             
-            {/* Mobile Contact Button */}
             <div className="navigation__mobile-contact">
               <button 
                 className="navigation__mobile-contact-button"
                 onClick={handleContactClick}
-                aria-label="Contact us"
               >
-                <Phone size={20} />
-                <span>Contact Us</span>
+                Contact Us
               </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div 
-          className="navigation__mobile-overlay"
-          onClick={closeMenu}
-          aria-hidden="true"
-        />
-      )}
     </nav>
   );
 };
