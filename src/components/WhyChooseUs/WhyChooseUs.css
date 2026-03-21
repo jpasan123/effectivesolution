@@ -1,0 +1,206 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800&display=swap');
+
+/* --- SCOPED VARIABLES --- */
+.wcu-section {
+  --wcu-brand: #537ac1; /* Your Blue */
+  --wcu-glass-bg: rgba(255, 255, 255, 0.1); /* Frosted Glass Base */
+  --wcu-glass-border: rgba(255, 255, 255, 0.2);
+  --wcu-text-white: #ffffff;
+  --wcu-text-muted: rgba(255, 255, 255, 0.8);
+  
+  font-family: 'Red Hat Display', sans-serif;
+  
+  /* MAIN BLUE BACKGROUND */
+  background-color: var(--wcu-brand);
+  
+  padding: 8rem 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.wcu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  /* REMOVED LEFT & RIGHT PADDING */
+  padding: 0; 
+  
+  position: relative;
+  z-index: 2;
+}
+
+/* --- DECORATIVE ORBS (For Liquid Effect) --- */
+.wcu-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.wcu-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: #ffffff;
+  top: -100px;
+  left: -100px;
+}
+
+.wcu-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+  bottom: -150px;
+  right: -100px;
+  opacity: 0.3;
+}
+
+/* --- HEADER --- */
+.wcu-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wcu-pre-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.wcu-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--wcu-text-white);
+  margin: 0 0 1rem 0;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.wcu-highlight {
+  color: #ffffff;
+  /* Removed Underline */
+  text-decoration: none; 
+}
+
+.wcu-subtitle {
+  font-size: 1.25rem;
+  color: var(--wcu-text-muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- GRID --- */
+.wcu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* --- LIQUID GLASS CARD --- */
+.wcu-card {
+  /* Glass Effect */
+  background: var(--wcu-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--wcu-glass-border);
+  
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  
+  /* Soft Shadow */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.wcu-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15); /* Slightly lighter on hover */
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- ICON WRAPPER --- */
+.wcu-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* White Circle with Blue Icon */
+  background-color: #ffffff;
+  color: var(--wcu-brand);
+  
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.wcu-card:hover .wcu-icon-wrapper {
+  transform: scale(1.1);
+}
+
+/* --- TEXT --- */
+.wcu-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--wcu-text-white);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.wcu-card-desc {
+  font-size: 1rem;
+  color: var(--wcu-text-muted);
+  line-height: 1.6;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .wcu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .wcu-section {
+    padding: 5rem 0;
+  }
+  
+  .wcu-container {
+    padding: 0 1.5rem; /* Smaller padding on mobile */
+  }
+
+  .wcu-title {
+    font-size: 2.25rem;
+  }
+
+  .wcu-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  
+  .wcu-card {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  
+  .wcu-icon-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

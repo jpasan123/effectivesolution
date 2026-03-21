@@ -1,0 +1,198 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800&display=swap');
+
+:root {
+  /* Footer color variables reused for TrustedBy section */
+  --ft-blue: #537ac1;       /* primary footer blue */
+  --ft-pink: #ec4899;       /* footer accent pink */
+  --ft-bg-start: #1e3a8a;   /* deep start for gradient */
+  --ft-bg-mid: #537ac1;     /* mid blue */
+  --ft-bg-end: #be185d;     /* warm end tone */
+  --ft-gradient: linear-gradient(135deg, var(--ft-bg-start) 0%, var(--ft-mid, var(--ft-bg-mid)) 50%, var(--ft-bg-end) 100%);
+
+  --brand-blue: var(--ft-blue);
+  --text-light: #555555;
+  --bg-white: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+/* --- Section Layout --- */
+.trusted-section {
+  background-color: var(--bg-white);
+  padding: 0 0 4rem 0; /* Reduced bottom spacing to bring the next section closer */
+  width: 100%;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.trusted-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --- FULL WIDTH BLUE GRADIENT BAR (Connected) --- */
+.trusted-gradient-bar-full {
+  width: 100%;
+  /* Use footer-like gradient for consistent branding */
+  background: linear-gradient(135deg, var(--ft-bg-start) 0%, var(--ft-bg-mid) 50%, var(--ft-bg-end) 100%);
+  border-radius: 0;
+  
+  /* Increased top padding for height, reduced bottom padding to bring text closer to edge */
+  padding: 6rem 0 4rem 0;
+  
+  /* REMOVED MARGIN to connect with section below */
+  margin-bottom: 0; 
+  
+  box-shadow: 0 20px 40px rgba(83, 122, 193, 0.15);
+  position: relative;
+  overflow: hidden;
+  z-index: 2; /* Sit on top of the grid visually */
+}
+
+/* Shine Effect */
+.trusted-gradient-bar-full::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Inner Layout */
+.trusted-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  flex: 1;
+  padding-bottom: 0.5rem;
+}
+
+/* --- Typography --- */
+.trusted-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.trusted-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 550px;
+}
+
+/* --- GRID LAYOUT (Connected) --- */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  
+  /* REMOVED TOP BORDER so it blends with blue bar */
+  border-top: none; 
+  border-bottom: 1px solid var(--border-color);
+  
+  background-color: var(--bg-white);
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Minimalist Cards --- */
+.achievement-card {
+  background: var(--bg-white);
+  padding: 4rem 2rem; /* More top padding to separate from blue bar */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-right: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.achievement-card:last-child {
+  border-right: none;
+}
+
+.achievement-card:hover {
+  background-color: #fcfdff;
+}
+
+/* --- Icons --- */
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background-color: var(--ft-blue); /* footer blue */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 6px 18px rgba(83,122,193,0.12);
+}
+
+/* --- Card Text --- */
+.card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .trusted-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .trusted-gradient-bar-full {
+    padding: 4rem 0;
+  }
+
+  .trusted-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    border-top: none; 
+  }
+  
+  .achievement-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 3rem 0;
+  }
+  
+  .achievement-card:last-child {
+    border-bottom: none;
+  }
+}
