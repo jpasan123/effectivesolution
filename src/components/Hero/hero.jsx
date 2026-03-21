@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import './hero.css';
 import award1 from '../../assets/award1.jpeg';
 import award2 from '../../assets/award2.jpeg';
-import ceo from '../../Pages/About/ceo&founder.jpg';
-import director from '../../Pages/About/director.jpg';
+import ceo from '../../pages/About/ceo&founder.jpg';
+import director from '../../pages/About/director.jpg';
 // removed SSE image import since we'll use a letter avatar instead
 
 const Hero = () => {
