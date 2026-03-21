@@ -1,5 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { 
+  Search, 
+  Calendar, 
+  Clock, 
+  ArrowRight, 
+  X, 
+  Tag,
+  CheckCircle 
+} from 'lucide-react';
 import './Blogs.css';
+
+// --- YOUR IMAGE IMPORTS ---
 import blog1 from './blog1.jpg';
 import blog2 from './blog2.jpg';
 import blog3 from './blog3.jpeg';
@@ -8,7 +19,8 @@ import blog5 from './blog5.jpg';
 import blog6 from './blog6.jpg';
 import blog7 from './blog7.png';
 import blog8 from './blog8.jpg';
-import blog9 from '../about/WIPO3.jpeg';
+import blog9 from './blog9.jpeg';
+import wipoImage from '../about/WIPO3.jpeg'; 
 
 const Blog = () => { 
   const [activeCategory, setActiveCategory] = useState('all');
@@ -16,125 +28,159 @@ const Blog = () => {
   const [selectedPost, setSelectedPost] = useState(null);
 
   const categories = [
-    { id: 'all', name: 'All Posts', count: 8 },
-    { id: 'ai-ml', name: 'AI & Machine Learning', count: 2 },
-    { id: 'biomedical', name: 'Biomedical Tech', count: 3 },
-    { id: 'industry-40', name: 'Industry 4.0', count: 3 }
+    { id: 'all', name: 'All Posts' },
+    { id: 'ai-ml', name: 'AI & Machine Learning' },
+    { id: 'biomedical', name: 'Biomedical Tech' },
+    { id: 'industry-40', name: 'Industry 4.0' }
   ];
 
+  // --- FULL BLOG DATA WITH ALL DETAILS ---
   const blogPosts = [
     {
-  id: 1,
-    title: 'The 2025 WIPO - FICPI International Patent Drafting Training Programme',
-    category: 'industry-40',
-    excerpt: 'Empowered by global knowledge, driven to protect innovations.',
-    content: {
-      sections: [
-        {
-          content: "Geneva, July 2025 – The fourth edition of the prestigious International Patent Drafting Training Programme (IPDTP), jointly developed by the World Intellectual Property Organization (WIPO) and FICPI (International Federation of Intellectual Property Attorneys), has successfully concluded at WIPO headquarters in Geneva. This year's programme brought together 29 participants from over 25 countries, reinforcing its status as a premier global initiative for IP professionals."
-        },
-        {
-          title: "A Collaborative Effort for Global IP Excellence",
-          content: "Led by Eric Le Forestier, President of the FICPI Academy and Of Counsel at HAUTIER IP (France), alongside Anupam Trivedi of K&S Partners (India), the programme also featured contributions from distinguished tutors Anna Tomlinson, Victoria Lovatt, and Robert Sayre. Since its inception, the IPDTP has gained recognition from national IP offices across Africa, Asia, Latin America, and Europe, solidifying its reputation as a benchmark for patent drafting excellence"
-        }
-      ]
+      id: 1,
+      title: 'MedTech Entrepreneur Keerthi Kodithuwakku Recognized as the ICT Leader of the Year',
+      category: 'biomedical',
+      excerpt: 'Jendo Innovations CEO honored with CSSL ICT Leader of the Year 2024 award for pioneering AI-powered vascular disease detection technology.',
+      publishDate: 'Oct 23, 2025',
+      readTime: '6 min read',
+      image: blog9,
+      tags: ['ICT', 'MedTech', 'Innovation', 'Leadership', 'Jendo', 'NITC2025'],
+      content: {
+        intro: "In a significant milestone for Sri Lanka's technology landscape, Keerthi Kodithuwakku was honored with the CSSL ICT Leader of the Year (Male) 2024 award at the National ICT Awards, held during NITC 2025. This prestigious accolade not only celebrates his individual achievements but also highlights the transformative impact of innovation within Sri Lanka's technology sector.",
+        tableOfContents: [
+          "A Vision for Vascular Healthcare",
+          "From University Research to Global Impact",
+          "Transforming Early Disease Detection",
+          "Sri Lanka's Rising Position in Global Innovation"
+        ],
+        sections: [
+          {
+            title: "A Vision for Vascular Healthcare",
+            content: "As the CEO of Jendo Innovations, Kodithuwakku has been at the forefront of developing pioneering biomedical technologies designed to revolutionize vascular healthcare. Under his leadership, Jendo Innovations created an AI-powered non-invasive screening system capable of detecting early-stage vascular diseases in just 15 minutes.",
+            highlight: "This breakthrough addresses a critical global health challenge by offering a cost-effective, accessible and scalable solution for early disease detection, bridging the gap between advanced medical technology and public health needs."
+          },
+          {
+            title: "From University Research to Global Impact",
+            content: "The journey from concept to reality was not without challenges. What began as a university research project has evolved into a groundbreaking medical technology with the potential to save millions of lives worldwide. Jendo Innovations, now a Sri Lankan biomedical startup valued at several million dollars, is tackling one of the world's most pressing health issues.",
+            points: [
+              { label: "Global Impact", text: "Vascular diseases claim nearly 18 million lives annually, often without prior symptoms." },
+              { label: "Innovation Gap", text: "Traditional diagnostic methods such as angiograms and stress tests are invasive, expensive and typically detect disease only after significant damage has occurred." },
+              { label: "Breakthrough Solution", text: "Jendo's technology transforms this paradigm by providing a comprehensive vascular health report within minutes, enabling early detection and timely intervention." }
+            ]
+          },
+          {
+            title: "Transforming Early Disease Detection",
+            content: "Kodithuwakku credits this success to collaboration and collective effort, noting that 'this recognition belongs to every innovator, engineer and dreamer at Jendo who believed in creating technology that heals, empowers and transforms lives.' Their efforts have positioned Sri Lanka as an emerging hub for biomedical innovation in the global technology ecosystem.",
+            highlight: "Keerthi's mission is building AI medical devices to transform primary care, ensuring that advanced diagnostics are accessible to every community, not just those in major hospitals."
+          },
+          {
+            title: "Sri Lanka's Rising Position in Global Innovation",
+            content: "The CSSL ICT Leader of the Year award stands as a beacon for aspiring technologists and entrepreneurs across the nation. It underscores the importance of leadership, vision and perseverance in driving meaningful technological advancement. Keerthi Kodithuwakku's recognition at NITC 2025 represents more than a personal milestone. It symbolizes Sri Lanka's growing presence in the global innovation arena.",
+            highlight: "His journey with Jendo Innovations exemplifies how visionary leadership and scientific excellence can merge to create technologies that transform lives. As Sri Lanka continues to strengthen its innovation ecosystem, his work stands as a lasting legacy of impact that will inspire future generations to build, innovate and lead with purpose."
+          }
+        ]
+      }
     },
-    publishDate: 'July 28, 2025',
-    readTime: '5 min read',
-    image: blog9, // Make sure to import this image
-    tags: ['Patentdrafting', 'IP', 'IntellectualProperty', 'WIPOPatentDrafting', 'FICPIPatentDrafting'],
-    featured: true,
-  },
     {
       id: 2,
+      title: 'The 2025 WIPO - FICPI International Patent Drafting Training Programme',
+      category: 'industry-40',
+      excerpt: 'Empowered by global knowledge, driven to protect innovations.',
+      publishDate: 'July 28, 2025',
+      readTime: '5 min read',
+      image: wipoImage,
+      tags: ['Patentdrafting', 'IP', 'IntellectualProperty', 'WIPOPatentDrafting', 'FICPIPatentDrafting'],
+      content: {
+        intro: "Geneva, July 2025 – The fourth edition of the prestigious International Patent Drafting Training Programme (IPDTP), jointly developed by the World Intellectual Property Organization (WIPO) and FICPI (International Federation of Intellectual Property Attorneys), has successfully concluded at WIPO headquarters in Geneva. This year's programme brought together 29 participants from over 25 countries, reinforcing its status as a premier global initiative for IP professionals.",
+        sections: [
+          {
+            title: "A Collaborative Effort for Global IP Excellence",
+            content: "Led by Eric Le Forestier, President of the FICPI Academy and Of Counsel at HAUTIER IP (France), alongside Anupam Trivedi of K&S Partners (India), the programme also featured contributions from distinguished tutors Anna Tomlinson, Victoria Lovatt, and Robert Sayre. Since its inception, the IPDTP has gained recognition from national IP offices across Africa, Asia, Latin America, and Europe, solidifying its reputation as a benchmark for patent drafting excellence."
+          }
+        ]
+      }
+    },
+    {
+      id: 3,
       title: 'Jendo – Heart Disease Prediction using Machine Learning',
       category: 'biomedical',
       excerpt: 'Discover the revolutionary 15-minute AI-powered heart check system that\'s transforming cardiovascular disease prediction.',
+      publishDate: 'July 10, 2025',
+      readTime: '12 min read',
+      image: blog8,
+      tags: ['AI', 'Healthcare', 'Machine Learning', 'Innovation', 'Jendo'],
       subtitle: [
         'Jendo – A 15‑Minute AI‑Powered Heart Check',
         'Clinical Use & Business Context', 
         'Innovation & Expansion Strategy'
       ],
       content: {
-        sections: [ 
+        intro: "Discover the revolutionary 15-minute AI-powered heart check system that's transforming cardiovascular disease prediction.",
+        sections: [
           {
-            point1: "Preparation & Setup",
-            content: "A sensor is placed on the patient's thumb featuring red and infrared light emitters.",
-            link:"WIPO+4WIPO+4nia.gov.lk+4-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com"
-          },
-          {
-            point2: "5‑Minute Occlusion Test",
-            content: "Blood flow is temporarily stopped via a cuff or similar device for five minutes, simulating stress on the endothelium.",
-            link:"WIPO-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com"
-          },
-           {
-            point3: "Release & Data Recording",
-            content: "After releasing the cuff, pulse and temperature signals are captured by the sensor, reflecting how the blood vessels respond.",
-            link:"WIPO-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com"
-          },
-          {
-            point4: "Machine‑Learning Analysis",
-            content: "These signals feed into a complex ML algorithm that has been trained to recognize patterns linked to endothelial dysfunction, the earliest stage of vascular disease.",
-            link:"WIPO-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com"
-          },
-          {
-            point5: "Risk Prediction Report",
-            content: "The system outputs a risk prediction for cardiovascular issues (and potentially diabetes or kidney disease), and generates a report with personalized lifestyle advice.",
-          },
-          {
-            point6: "Recommended Environment",
-            content: "Designed to be used under medical supervision, ideally at facilities. Home use is possible if instructions are strictly followed",
-            link:"WIPO-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com"
+            title: "Jendo – A 15‑Minute AI‑Powered Heart Check",
+            // Using a structured format for the steps to render nicely
+            steps: [
+              { heading: "Preparation & Setup", text: "A sensor is placed on the patient's thumb featuring red and infrared light emitters.", source: "WIPO" },
+              { heading: "5‑Minute Occlusion Test", text: "Blood flow is temporarily stopped via a cuff or similar device for five minutes, simulating stress on the endothelium.", source: "WIPO" },
+              { heading: "Release & Data Recording", text: "After releasing the cuff, pulse and temperature signals are captured by the sensor, reflecting how the blood vessels respond.", source: "WIPO" },
+              { heading: "Machine‑Learning Analysis", text: "These signals feed into a complex ML algorithm that has been trained to recognize patterns linked to endothelial dysfunction, the earliest stage of vascular disease.", source: "WIPO" },
+              { heading: "Risk Prediction Report", text: "The system outputs a risk prediction for cardiovascular issues (and potentially diabetes or kidney disease), and generates a report with personalized lifestyle advice." },
+              { heading: "Recommended Environment", text: "Designed to be used under medical supervision, ideally at facilities. Home use is possible if instructions are strictly followed.", source: "WIPO" }
+            ]
           },
           {
             title: "Clinical Use & Business Context",
-            point1: "Scale of testing: Clinically validated on over 800 patients and currently in use at hospitals and labs, though it's not yet commercialized.",
-            link1: 'WIPO-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com',
-            point2: 'Pricing model: The device is planned to retail at US $2,250, with an annual subscription of US $10,000, and a per‑test cost of US $8 — making it a cost‑effective alternative to traditional diagnostics.',
-            link2:'WIPO-https://www.wipo.int/en/web/ip-advantage/w/stories/jendo-heart-disease-prediction-using-machine-learning?utm_source=chatgpt.com'
+            points: [
+              { label: "Scale of testing", text: "Clinically validated on over 800 patients and currently in use at hospitals and labs, though it's not yet commercialized.", source: "WIPO" },
+              { label: "Pricing model", text: "The device is planned to retail at US $2,250, with an annual subscription of US $10,000, and a per‑test cost of US $8 — making it a cost‑effective alternative to traditional diagnostics.", source: "WIPO" }
+            ]
           },
           {
             title: "Innovation & Expansion Strategy",
-            point1: "Growth plans: Exploring business setup in Switzerland and Singapore to scale internationally.",
-            point2: "Regulatory roadmap: Undergoing review by Sri Lanka's medical regulator, with future plans for FDA approval (USA) and submissions in other jurisdictions"
+            points: [
+              { label: "Growth plans", text: "Exploring business setup in Switzerland and Singapore to scale internationally." },
+              { label: "Regulatory roadmap", text: "Undergoing review by Sri Lanka's medical regulator, with future plans for FDA approval (USA) and submissions in other jurisdictions." }
+            ]
           }
         ]
-      },
-      publishDate: 'July 10, 2025',
-      readTime: '12 min read',
-      image: blog8,
-      tags: ['AI', 'Healthcare', 'Machine Learning', 'Innovation', 'Jendo'],
-      featured: true,
+      }
     },
     {
-    id: 3,
+      id: 4,
       title: 'Mind-Controlled Drone and AI for Diabetic Retinopathy Screening',
       category: 'ai-ml',
       excerpt: 'Explore innovative medical technologies including mind-controlled drones and AI-powered diabetic retinopathy screening systems.',
+      publishDate: 'November 30, 2024',
+      readTime: '5 min read',
+      image: blog7,
+      tags: ['AI', 'Healthcare', 'Innovation', 'Medical Technology', 'Startups'],
       content: {
+        intro: "Explore innovative medical technologies including mind-controlled drones and AI-powered diabetic retinopathy screening systems.",
         sections: [
           {
             content: "In addition to Jendo Innovations, Keerthi has launched several other startups. Under these companies (Effective Solutions, Optha Innovations), other innovative medical devices and systems are being developed. One of them is Myndrone, which allows the user to control a drone by using his/her brain waves. \"This activity relaxes the brain and the user feels calm after a game session\", Keerthi said. Another product soon to be launched is Ophta-AES, a Human Machine Interface (HMI), an AI-powered system to provide early detection of diabetic retinopathy, which is the most common cause of blindness among diabetic patients worldwide. \"Over 45 percent of diabetic patients worldwide develop diabetic retinopathy and most of them could prevent worsening of the disease with early detection \", Keerthi explained"
           }
         ]
-      },
-      publishDate: 'November 30, 2024',
-      readTime: '5 min read',
-      image: blog7,
-      tags: ['AI', 'Healthcare', 'Innovation', 'Medical Technology', 'Startups'],
-      featured: true,
+      }
     },
-     {
-      id: 4,
+    {
+      id: 5,
       title: 'Jendo: AI-Powered Heart Health Monitoring',
       category: 'ai-ml',
       excerpt: 'Explore how Jendo\'s AI-powered technology is revolutionizing cardiovascular health monitoring and disease prevention.',
+      publishDate: 'November 30, 2024',
+      readTime: '9 min read',
+      image: blog6,
+      tags: ['AI', 'Healthcare', 'Cardiology', 'Innovation', 'Jendo'],
       subtitle: [
         'AI in cardiology – A Steppingstone for Jendo Innovations',
         'Cardiovascular Diseases: The No.1 Killer in the World', 
         'Endothelial Dysfunction, Disease Tattling'
       ],
       content: {
+        intro: "Explore how Jendo's AI-powered technology is revolutionizing cardiovascular health monitoring and disease prevention.",
+        tableOfContents: ["AI in cardiology – A Steppingstone for Jendo Innovations", "Cardiovascular Diseases: The No.1 Killer in the World", "Endothelial Dysfunction, Disease Tattling"],
         sections: [
           {
             content: "Keerthi Kodithuwakku is a biomedical engineer, the co-founder and CEO of Jendo Innovations, a bio-medical startup delivering patented healthcare solutions detecting abnormalities in the cardiovascular system and seeking to prevent the risk of cardiovascular diseases. His strong passion for biomedical engineering resisted adverse advice from some senior advisors in the healthcare industry about the lack of prospects in biomedical engineering in Sri Lanka. Along with a like-minded group of engineers, he followed his dream of providing a solution to help solve medical conditions. In their research and entrepreneurial journey, Keerthi said that he found strength and motivation through the strong support of his wife, family, friends, and coworkers in overcoming the obstacles faced when developing Jendo Innovations."
@@ -152,23 +198,23 @@ const Blog = () => {
             content: "Cardiovascular diseases are silent killers, as they often go unnoticed for 20 to 30 years. The progressive worsening of the patient's conditions goes through multiple stages, from inflammation to the formation of plaque, to the stiffening of walls, ultimately leading to life-threatening blood clots."
           }
         ]
-      },
-      publishDate: 'November 30, 2024',
-      readTime: '9 min read',
-      image: blog6,
-      tags: ['AI', 'Healthcare', 'Cardiology', 'Innovation', 'Jendo'],
-      featured: true,
-     
+      }
     },
-     {
-      id: 5,
+    {
+      id: 6,
       title: 'Healthcare Regulatory Compliance Challenges for Medical Technology',
       category: 'biomedical',
       excerpt: '"A patent is key to proving the value of your invention and winning investors\' confidence"',
+      publishDate: 'November 30, 2024',
+      readTime: '9 min read',
+      image: blog5,
+      tags: ['AI', 'Healthcare', 'Cardiology', 'Innovation', 'Jendo'],
       subtitle: [
         'Tried and Tested on Patients to Prevent Heart Disease',
       ],
       content: {
+        intro: "\"A patent is key to proving the value of your invention and winning investors' confidence\"",
+        tableOfContents: ["Tried and Tested on Patients to Prevent Heart Disease"],
         sections: [
           {
             content: "One of the challenges that the company is facing is finding partners in the health ecosystem. The other one is going through the health regulatory process as each country has its regulatory authority. Sri Lanka's regulatory authority is currently reviewing the Jendo system. Once the review is completed, it will allow the commercialization of the device. The company will also apply for the United States Food and Drug Administration (FDA) approval, followed by other countries. Jendo Innovations is also in discussion to establish two business centers outside of Sri Lanka; one in Switzerland, and the other one in Singapore. \"Both countries have a favorable business environment, and growth opportunities,\" according to Keerthi."
@@ -178,26 +224,20 @@ const Blog = () => {
             content: "Jendo's system is not commercialized yet but the device is already being used by hospitals and laboratory chains, and clinically tested on over 800 patients. Under the current business model, the device will be sold at US$2,250 with an annual subscription fee of US$10,000. The test will be charged US$8. According to Keerthi, 'the screening price is affordable in comparison with other established procedures.' The company swiftly proceeded to apply for a patent, first in Sri Lanka (pending), then in the United States (granted: USPTO Patent 10,912,464 B2), and in Japan (Pending), through the WIPO Patent Cooperation Treaty (PCT). According to Keerthi, investors want to make sure the products they invest in is ahead of the competition. \"A patent is key to proving the value of your invention and winning investors' confidence,\" he said."
           }
         ]
-      },
-      publishDate: 'November 30, 2024',
-      readTime: '9 min read',
-      image: blog5,
-      tags: ['AI', 'Healthcare', 'Cardiology', 'Innovation', 'Jendo'],
-      featured: true,
-
+      }
     },
-     {
-      id: 6,
+    {
+      id: 7,
       title: 'Celebrating Innovation: Jendo Wins the John Keells Open Innovation Challenge 2016',
       category: 'biomedical',
       excerpt: 'How Jendo\'s innovative healthcare solution won the prestigious John Keells Open Innovation Challenge and its impact on the industry.',
-      subtitle: [
-        'The John Keells Open Innovation Challenge',
-        'About Jendo and Their Mission', 
-        'Impacts and Future Prospects for Jendo', 
-        'Inspiring Innovation in Healthcare'
-      ],
+      publishDate: 'October 29, 2024',
+      readTime: '7 min read',
+      image: blog4,
+      tags: ['Healthcare', 'Innovation', 'Awards', 'Jendo', 'Technology'],
       content: {
+        intro: "How Jendo's innovative healthcare solution won the prestigious John Keells Open Innovation Challenge and its impact on the industry.",
+        tableOfContents: ["The John Keells Open Innovation Challenge", "About Jendo and Their Mission", "Impacts and Future Prospects for Jendo", "Inspiring Innovation in Healthcare"],
         sections: [
           {
             title: "The John Keells Open Innovation Challenge",
@@ -228,26 +268,20 @@ const Blog = () => {
             ]
           }
         ]
-      },
-      publishDate: 'October 29, 2024',
-      readTime: '7 min read',
-      image: blog4,
-      tags: ['Healthcare', 'Innovation', 'Awards', 'Jendo', 'Technology'],
-      featured: true,
-      
+      }
     },
-     {
-      id: 7,
+    {
+      id: 8,
       title: 'Empowering Voices: How Public Speaking Drives Innovation and Leadership in Business',
       category: 'industry-40',
       excerpt: 'Discover how public speaking skills can transform leaders and drive innovation in business environments.',
-      subtitle: [
-        'The Power of Public Speaking in Business',
-        'How Public Speaking Builds Confidence and Credibility', 
-        'Real-World Examples: Leaders Who Transform Through Speech', 
-        'Tips to Enhance Your Public Speaking Skills'
-      ],
+      publishDate: 'October 29, 2024',
+      readTime: '6 min read',
+      image: blog3,
+      tags: ['Public Speaking', 'Leadership', 'Communication', 'Business'],
       content: {
+        intro: "Discover how public speaking skills can transform leaders and drive innovation in business environments.",
+        tableOfContents: ["The Power of Public Speaking in Business", "How Public Speaking Builds Confidence and Credibility", "Real-World Examples: Leaders Who Transform Through Speech", "Tips to Enhance Your Public Speaking Skills"],
         sections: [
           {
             title: "The Power of Public Speaking in Business",
@@ -306,34 +340,28 @@ const Blog = () => {
             ] 
           }
         ]
-      },
-      publishDate: '2024-10-29',
-      readTime: '6 min read',
-      image: blog3,
-      tags: ['Public Speaking', 'Leadership', 'Communication', 'Business'],
-      featured: false,
-      
+      }
     },
-     {
-      id: 8,
+    {
+      id: 9,
       title: 'Empowering Entrepreneurs: Insights from "Business Best" on Building a Thriving Business',
       category: 'industry-40',
       excerpt: 'Key insights and actionable strategies from "Business Best" to help entrepreneurs build successful and sustainable businesses.',
-      subtitle: [
-        'Key Lessons for Aspiring Entrepreneurs',
-        'Success Stories: Inspiration from Industry Leaders', 
-        'Actionable Tips and Strategies', 
-        'The Role of Leadership and Vision in Business Growth'
-      ],
+      publishDate: 'October 29, 2024',
+      readTime: '8 min read',
+      image: blog2,
+      tags: ['Business', 'Leadership', 'Entrepreneurship', 'Strategy'],
       content: {
-        sections: [ 
+        intro: "Key insights and actionable strategies from \"Business Best\" to help entrepreneurs build successful and sustainable businesses.",
+        tableOfContents: ["Key Lessons for Aspiring Entrepreneurs", "Success Stories: Inspiration from Industry Leaders", "Actionable Tips and Strategies", "The Role of Leadership and Vision in Business Growth"],
+        sections: [
           {
             title: "Understanding Market Needs",
-            content: "Entrepreneurs must focus on identifying and addressing the unique needs of their target audience, a concept emphasized repeatedly in 'Business Best.'"
+            content: "Entrepreneurs must focus on identifying and addressing the unique needs of their target audience, a concept emphasized repeatedly in 'Business Best.' Understanding your market is the foundation of any successful venture."
           },
           {
             title: "Importance of Adaptability and Innovation",
-            content: "Insights on how businesses can adapt to rapid changes in the market and embrace innovation as a core value."
+            content: "Insights on how businesses can adapt to rapid changes in the market and embrace innovation as a core value. The most successful entrepreneurs are those who can pivot quickly while maintaining their core vision."
           },
           {
             title: "Success Stories: Inspiration from Industry Leaders",
@@ -362,47 +390,32 @@ const Blog = () => {
             ] 
           }
         ]
-      },
-      publishDate: '2024-10-29',
-      readTime: '8 min read',
-      image: blog2,
-      tags: ['Business', 'Leadership', 'Entrepreneurship', 'Strategy'],
-      featured: false,
-     
+      }
     },
-     {
-      id: 9,
+    {
+      id: 10,
       title: 'Celebrating Start-up Innovation: Highlights from Seedstars Sri Lanka Regional Event',
       category: 'industry-40',
       excerpt: 'Discover how Seedstars empowers start-ups in emerging markets and highlights from the Sri Lanka Regional Event showcasing local innovation.',
-      subtitle: [
-        'The Seedstars Experience: Supporting Innovation in Emerging Markets',
-        'Highlights from the Sri Lanka Regional Event', 
-        'The Winning Start-up: Innovation That Stands Out', 
-        'Building Sri Lanka\'s Start-up Ecosystem'
-      ],
+      publishDate: 'January 15, 2024',
+      readTime: '8 min read',
+      image: blog1,
+      tags: ['Startups', 'Innovation', 'Entrepreneurship', 'Sri Lanka', 'Seedstars'],
       content: {
+        intro: "Discover how Seedstars empowers start-ups in emerging markets and highlights from the Sri Lanka Regional Event showcasing local innovation.",
+        tableOfContents: ["The Seedstars Experience: Supporting Innovation in Emerging Markets", "Highlights from the Sri Lanka Regional Event", "The Winning Start-up: Innovation That Stands Out", "Building Sri Lanka's Start-up Ecosystem"],
         sections: [
           {
             title: "About Seedstars and Its Global Mission",
-            content: "An overview of Seedstars, an organization focused on empowering start-ups in emerging markets, with a specific look at its commitment to fostering innovation in Sri Lanka."
+            content: "An overview of Seedstars, an organization focused on empowering start-ups in emerging markets, with a specific look at its commitment to fostering innovation in Sri Lanka. Seedstars has become a global platform connecting entrepreneurs with resources, mentorship, and investment opportunities."
           },
           {
             title: "Why Seedstars Matters for Local Start-ups",
-            content: "A discussion on how Seedstars helps start-ups connect with resources, mentorship, and a global network, creating pathways to growth and visibility for early-stage businesses."
+            content: "A discussion on how Seedstars helps start-ups connect with resources, mentorship, and a global network, creating pathways to growth and visibility for early-stage businesses. For Sri Lankan entrepreneurs, this represents an unprecedented opportunity to scale globally."
           },
           {
             title: "Highlights from the Sri Lanka Regional Event",
-            subsections: [
-              {
-                title: "An Event That Inspires and Empowers",
-                content: "Highlights from the day, including inspiring speeches, panel discussions, and networking opportunities that set the stage for a collaborative start-up ecosystem."
-              },
-              {
-                title: "Showcasing Sri Lankan Start-ups: A Competitive Showcase",
-                content: "A look at some of the competing start-ups and their innovative solutions, highlighting the diversity and creativity of Sri Lanka's entrepreneurial scene."
-              }
-            ]
+            content: "The Sri Lanka Regional Event brought together the brightest minds in the local startup ecosystem. Entrepreneurs pitched their solutions to a panel of expert judges, competing for the chance to represent Sri Lanka on the global stage."
           },
           {
             title: "The Winning Start-up: Innovation That Stands Out",
@@ -413,384 +426,285 @@ const Blog = () => {
             content: "Discussion on the broader impact of events like Seedstars on Sri Lanka's start-up ecosystem, including how such initiatives contribute to economic growth, job creation, and technological advancement in the region."
           }
         ]
-      },
-      publishDate: '2024-01-15',
-      readTime: '8 min read',
-      image: blog1,
-      tags: ['Startups', 'Innovation', 'Entrepreneurship', 'Sri Lanka', 'Seedstars'],
-      featured: true,
-   
+      }
     }
   ];
 
-  const featuredPosts = blogPosts.filter(post => post.featured);
+  // --- GET THE LATEST POST (First item in array) ---
+  const latestPost = blogPosts[0];
+
   const filteredPosts = blogPosts.filter(post => {
-  const matchesCategory = activeCategory === 'all' || post.category === activeCategory;
-  const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                       post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-  return matchesCategory && matchesSearch;
-});
-
-const blogSectionRef = useRef(null);
-const footerRef = useRef(null);
-
-const scrollToBlogs = () => {
-  blogSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-};
-
-const scrollToFooter = () => {
-  footerRef.current?.scrollIntoView({ behavior: 'smooth' });
-};
+    const matchesCategory = activeCategory === 'all' || post.category === activeCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const formatDate = (dateString) => {
+    // If it's already formatted like "July 28, 2025", return it. 
+    // Otherwise, convert it.
+    if (dateString.includes(',')) return dateString;
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  const [email, setEmail] = useState('');
-const [isSubscribed, setIsSubscribed] = useState(false);
-
-const handleSubscribe = async (e) => {
-  e.preventDefault();
-  
-  try {
-    // Here you would typically call your backend API
-    // For demonstration, we'll just log it
-    console.log('Subscribing email:', email);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubscribed(true);
-    setEmail('');
-    
-    // Reset after 3 seconds
-    setTimeout(() => setIsSubscribed(false), 3000);
-  } catch (error) {
-    console.error('Subscription failed:', error);
-  }
-};
-
-  // Enhanced function to render blog content sections
+  // --- MODAL CONTENT RENDERER ---
   const renderBlogContent = (content) => {
     if (!content || !content.sections) return null;
 
     return content.sections.map((section, index) => (
       <div key={index} className="modal-content-section">
+        {/* Section Title */}
         {section.title && (
           <h2 className="modal-section-title">{section.title}</h2>
         )}
         
+        {/* Simple Paragraph Content */}
         {section.content && (
           <div className="modal-section-content">
             <p>{section.content}</p>
           </div>
         )}
 
+        {/* Multiple Paragraphs */}
         {section.content1 && (
           <div className="modal-section-content">
             <p>{section.content1}</p>
           </div>
         )}
-
         {section.content2 && (
           <div className="modal-section-content">
             <p>{section.content2}</p>
           </div>
         )}
 
-        {section.content3 && (
-          <div className="modal-section-content">
-            <p>{section.content3}</p>
+        {/* Highlight Quote */}
+        {section.highlight && (
+          <blockquote className="section-highlight">
+            {section.highlight}
+          </blockquote>
+        )}
+
+        {/* Structured Steps (for Jendo type posts) */}
+        {section.steps && (
+          <div className="section-steps">
+            {section.steps.map((step, stepIdx) => (
+              <div key={stepIdx} className="step-item">
+                <h4>{step.heading}</h4>
+                <p>{step.text}</p>
+                {step.source && <span className="step-source">Source: {step.source}</span>}
+              </div>
+            ))}
           </div>
         )}
 
-        {/* Handle point-based content for structured lists */}
-        {(section.point1 || section.point2 || section.point3 || section.point4 || section.point5 || section.point6) && (
-          <div className="modal-points-section">
-            {section.point1 && (
-              <div className="modal-point-item">
-                <h4 className="modal-point-title">{section.point1}</h4>
-                <p className="modal-point-content">{section.content}</p>
-                {section.link && (
-                  <div className="modal-point-link">
-                    <span>Source: {section.link.split('-')[0]}</span>
-                  </div>
-                )}
+        {/* Structured Points (for Business Context) */}
+        {section.points && (
+          <div className="section-points">
+            {section.points.map((point, pointIdx) => (
+              <div key={pointIdx} className="point-item">
+                <p><strong>{point.label}:</strong> {point.text}</p>
+                {point.source && <span className="point-source">Source: {point.source}</span>}
               </div>
-            )}
-            {section.point2 && (
-              <div className="modal-point-item">
-                <h4 className="modal-point-title">{section.point2}</h4>
-                <p className="modal-point-content">{section.content}</p>
-                {section.link && (
-                  <div className="modal-point-link">
-                    <span>Source: {section.link.split('-')[0]}</span>
-                  </div>
-                )}
-              </div>
-            )}
-            {section.point3 && (
-              <div className="modal-point-item">
-                <h4 className="modal-point-title">{section.point3}</h4>
-                <p className="modal-point-content">{section.content}</p>
-                {section.link && (
-                  <div className="modal-point-link">
-                    <span>Source: {section.link.split('-')[0]}</span>
-                  </div>
-                )}
-              </div>
-            )}
-            {section.point4 && (
-              <div className="modal-point-item">
-                <h4 className="modal-point-title">{section.point4}</h4>
-                <p className="modal-point-content">{section.content}</p>
-                {section.link && (
-                  <div className="modal-point-link">
-                    <span>Source: {section.link.split('-')[0]}</span>
-                  </div>
-                )}
-              </div>
-            )}
-            {section.point5 && (
-              <div className="modal-point-item">
-                <h4 className="modal-point-title">{section.point5}</h4>
-                <p className="modal-point-content">{section.content}</p>
-              </div>
-            )}
-            {section.point6 && (
-              <div className="modal-point-item">
-                <h4 className="modal-point-title">{section.point6}</h4>
-                <p className="modal-point-content">{section.content}</p>
-                {section.link && (
-                  <div className="modal-point-link">
-                    <span>Source: {section.link.split('-')[0]}</span>
-                  </div>
-                )}
-              </div>
-            )}
+            ))}
           </div>
         )}
 
-        {/* Handle business context sections */}
-        {section.title === "Clinical Use & Business Context" && (
-          <div className="modal-business-section">
-            {section.point1 && (
-              <div className="modal-business-item">
-                <p>{section.point1}</p>
-                {section.link1 && (
-                  <div className="modal-point-link">
-                    <span>Source: {section.link1.split('-')[0]}</span>
-                  </div>
-                )}
-              </div>
-            )}
-          {section.point2 && (
-            <div className="modal-business-item">
-              <p>{section.point2}</p>
-              {section.link2 && (
-                <div className="modal-point-link">
-                  <span>Source: {section.link2.split('-')[0]}</span>
-                </div>
-              )}
+        {/* Subsections (for nested content) */}
+        {section.subsections && section.subsections.map((sub, subIdx) => (
+          <div key={subIdx} className="modal-subsection">
+            <h3 className="modal-subsection-title">{sub.title}</h3>
+            <div className="modal-subsection-content">
+              <p>{sub.content}</p>
             </div>
-          )}
-        </div>
-      )}
-    </div>
-  ));
-};
+          </div>
+        ))}
+      </div>
+    ));
+  };
 
   return (
     <div className="blog-page">
-      {/* Hero Section */}
-      <section className="hero-Container">
-        <div className="background-elements">
-          <div className="grid-pattern"></div>
-          <div className="bg-element bg-element-1"></div>
-          <div className="bg-element bg-element-2"></div>
-          <div className="bg-element bg-element-3"></div>
-        </div>
+      
+      {/* --- HERO SECTION (Dynamic Latest Post) --- */}
+      <section className="blog-hero">
+        <div className="container">
+          <div className="hero-grid-wrapper">
+            
+            {/* Text Side */}
+            <div className="hero-text-side">
+              <span className="hero-latest-badge">Latest Article</span>
+              <h1 className="hero-main-title">{latestPost.title}</h1>
+              
+              <div className="hero-meta-row">
+                <span className="hero-cat">
+                  {categories.find(c => c.id === latestPost.category)?.name}
+                </span>
+                <span className="separator">•</span>
+                <span className="hero-date">{formatDate(latestPost.publishDate)}</span>
+                <span className="separator">•</span>
+                <span className="hero-time">{latestPost.readTime}</span>
+              </div>
 
-        <div className="hero-content">
-          <div className="content-wrapper">
-            <div className="content-left">
-              <h2 className="hero-title">
-                Insights & Innovation in<br /> 
-                <span className="title-gradient">Technology</span>
-              </h2>
-              <p className="hero-description">
-                Explore cutting-edge insights, industry trends, and breakthrough innovations 
-                in AI, IoT, biomedical technology, and Industry 4.0 from our expert team.
-              </p>
+              <p className="hero-excerpt">{latestPost.excerpt}</p>
+              
+              <button 
+                className="hero-read-btn"
+                onClick={() => setSelectedPost(latestPost)}
+              >
+                Read Article <ArrowRight size={18} />
+              </button>
             </div>
-          </div>
-        </div>
 
-        <div className="scroll-indicator">
-          <div className="scroll-mouse">
-            <div className="scroll-wheel"></div>
+            {/* Image Side */}
+            <div className="hero-image-side">
+              <div 
+                className="hero-img-frame" 
+                onClick={() => setSelectedPost(latestPost)}
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={latestPost.image} alt={latestPost.title} />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Featured Posts Section */}
-      
-
-      {/* Search and Filter Section */}
-      <section className="filter-section">
+      {/* --- FILTER & SEARCH BAR --- */}
+      <section className="blog-filters">
         <div className="container">
-          <div className="filter-content">
-            <div className="search-bar">
-              <div className="search-input-wrapper">
-                <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <circle cx="11" cy="11" r="8" strokeWidth="2"/>
-                  <path d="M21 21l-4.35-4.35" strokeWidth="2"/>
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Search articles, topics, or technologies..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="search-input"
-                />
-              </div>
-            </div>
-            
-            <div className="category-filters">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(category.id)}
+          <div className="filter-wrapper">
+            <div className="category-list">
+              {categories.map((cat) => (
+                <button 
+                  key={cat.id} 
+                  className={`cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat.id)}
                 >
-                  {category.name}
-                  <span className="category-count">{category.count}</span>
+                  {cat.name}
                 </button>
               ))}
             </div>
+            
+            <div className="search-box">
+              <Search className="search-icon" size={18} />
+              <input 
+                type="text" 
+                placeholder="Search articles..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
-      <section className="blog-posts-section">
+      {/* --- BLOG GRID (Calcey Style) --- */}
+      <section className="blog-grid-section">
         <div className="container">
-          <div className="section-header">
-            <h2>All Articles</h2>
-            <p>Discover insights from our technology experts</p>
-          </div>
-          
-          <div className="blog-posts-grid">
-            {filteredPosts.map((post, index) => (
+          <div className="blog-grid">
+            {filteredPosts.map((post) => (
               <article 
-                key={`${post.id}-${index}`}
-                className="blog-post"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                key={post.id} 
+                className="blog-card"
                 onClick={() => setSelectedPost(post)}
               >
-                <div className="post-image">
+                <div className="card-image-wrap">
                   <img src={post.image} alt={post.title} />
-                  <div className="post-overlay">
-                    <button className="read-more-btn">
-                      <span>Read More</span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2"/>
-                      </svg>
-                    </button>
-                  </div>
+                  <span className="card-category-badge">
+                    {categories.find(c => c.id === post.category)?.name}
+                  </span>
                 </div>
-                
-                <div className="post-content">
-                  <div className="post-meta">
-                    <span className="post-category">{categories.find(cat => cat.id === post.category)?.name || 'Technology'}</span>
-                    <span className="post-date">{formatDate(post.publishDate)}</span>
+                <div className="card-content">
+                  <div className="card-meta">
+                    <span className="meta-item"><Calendar size={14} /> {formatDate(post.publishDate)}</span>
+                    <span className="meta-item"><Clock size={14} /> {post.readTime}</span>
                   </div>
+                  <h3 className="card-title">{post.title}</h3>
+                  <p className="card-excerpt">{post.excerpt}</p>
                   
-                  <h3 className="post-title">{post.title}</h3>
-                  <p className="post-excerpt">{post.excerpt}</p>
-                  
-                  <div className="post-tags">
-                    {post.tags.slice(0, 3).map((tag, tagIndex) => (
-                      <span key={tagIndex} className="tag">{tag}</span>
-                    ))}
+                  <div className="card-footer">
+                    <div className="card-tags">
+                      {post.tags && post.tags.slice(0, 2).map((tag, i) => (
+                        <span key={i} className="mini-tag"># {tag}</span>
+                      ))}
+                    </div>
+                    <span className="read-more-link">Read Article <ArrowRight size={16} /></span>
                   </div>
-
                 </div>
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Newsletter Section */}
-      <section className="newsletter-section">
-        <div className="container">
-          <div className="newsletter-content">
-            <div className="newsletter-text">
-              <h2>Stay Updated with Latest Insights</h2>
-              <p>Get the latest articles on AI, IoT, and Industry 4.0 delivered to your inbox</p>
+          {filteredPosts.length === 0 && (
+            <div className="no-results">
+              <h3>No articles found</h3>
+              <p>Try adjusting your search or category filter.</p>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
-      {/* Blog Post Modal */}
+      {/* --- MODAL FOR READING --- */}
       {selectedPost && (
-        <div className="post-modal-overlay" onClick={() => setSelectedPost(null)}>
-          <div className="post-modal" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="modal-close"
-              onClick={() => setSelectedPost(null)}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M18 6L6 18M6 6l12 12" strokeWidth="2"/>
-              </svg>
+        <div className="modal-overlay" onClick={() => setSelectedPost(null)}>
+          <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setSelectedPost(null)}>
+              <X size={24} />
             </button>
-            
-            <div className="modal-content">
-              <div className="modal-header">
-                <img src={selectedPost.image} alt={selectedPost.title} className="modal-image" />
-                <div className="modal-meta">
-                  <span className="modal-category">{categories.find(cat => cat.id === selectedPost.category)?.name || 'Technology'}</span>
-                  <span className="modal-date">{formatDate(selectedPost.publishDate)}</span>
-                </div>
-                <h1 className="modal-title">{selectedPost.title}</h1>
-                <div className="modal-author">
-                  <img src={selectedPost.authorImage} alt={selectedPost.author} className="modal-author-avatar" />
-                  <div className="modal-author-info">
-                    <span className="modal-author-name">{selectedPost.author}</span>
-                    <span className="modal-author-role">{selectedPost.authorRole}</span>
-                  </div>
-                  <div className="modal-stats">
-                    <span>{selectedPost.readTime}</span>
-                    <span>•</span>
-                    <span>{selectedPost.views} views</span>
-                  </div>
+            <div className="modal-header">
+              <img src={selectedPost.image} alt={selectedPost.title} className="modal-hero-img" />
+              <div className="modal-header-content">
+                <span className="modal-category-tag">
+                  {categories.find(c => c.id === selectedPost.category)?.name}
+                </span>
+                <h1>{selectedPost.title}</h1>
+                <div className="modal-meta-row">
+                  <span>{formatDate(selectedPost.publishDate)}</span>
+                  <span>•</span>
+                  <span>{selectedPost.readTime}</span>
                 </div>
               </div>
+            </div>
+            <div className="modal-body">
+              {/* Introduction Text */}
+              {selectedPost.content.intro && (
+                <p className="modal-intro">{selectedPost.content.intro}</p>
+              )}
+              {!selectedPost.content.intro && <p className="modal-intro">{selectedPost.excerpt}</p>}
               
-              <div className="modal-body">
-                <p className="modal-excerpt">{selectedPost.excerpt}</p>
-                
-                {/* Display subtitle list if available */}
-                {selectedPost.subtitle && selectedPost.subtitle.length > 0 && (
-                  <div className="modal-subtitle-list">
-                    <h4>In This Article:</h4>
-                    <ul>
-                      {selectedPost.subtitle.map((subtitle, index) => (
-                        <li key={index}>{subtitle}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {/* Render the actual blog content */}
-                <div className="modal-text">
-                  {renderBlogContent(selectedPost.content)}
+              {/* Subtitles / Table of Contents if available */}
+              {selectedPost.subtitle && selectedPost.subtitle.length > 0 && (
+                <div className="modal-subtitle-list">
+                  <h4>In This Article:</h4>
+                  <ul>
+                    {selectedPost.subtitle.map((sub, i) => (
+                      <li key={i}>{sub}</li>
+                    ))}
+                  </ul>
                 </div>
-                
+              )}
+
+              {selectedPost.content.tableOfContents && (
+                <div className="modal-subtitle-list">
+                  <h4>In This Article:</h4>
+                  <ul>
+                    {selectedPost.content.tableOfContents.map((sub, i) => (
+                      <li key={i}>{sub}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <hr />
+              
+              <div className="modal-text-content">
+                {renderBlogContent(selectedPost.content)}
+              </div>
+              
+              {/* Tags Section */}
+              {selectedPost.tags && (
                 <div className="modal-tags">
                   <h4>Tags:</h4>
                   <div className="tags-list">
@@ -799,8 +713,7 @@ const handleSubscribe = async (e) => {
                     ))}
                   </div>
                 </div>
-              </div>
-              
+              )}
             </div>
           </div>
         </div>

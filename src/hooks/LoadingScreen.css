@@ -1,219 +1,197 @@
-/* Effective Solutions Loading Screen - Complete CSS */
+/* Import Font matching the rest of the site */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800&display=swap');
 
-/* Main Loading Screen Container */
-.effectivesolutions-loading {
+.loading-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #2c3e50;
+  background-color: #ffffff; /* Clean white background */
+  z-index: 9999;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 10000;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  align-items: center;
+  font-family: 'Red Hat Display', sans-serif;
   overflow: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
-/* Main Loading Wrapper */
-.loading-wrapper {
+/* Smooth Fade Out Logic */
+.loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* --- BACKGROUND BLOBS (Matches Hero) --- */
+.loader-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: -1;
+}
+.blob-blue { width: 600px; height: 600px; background: #537ac1; top: -20%; left: -20%; animation: blob-float 8s ease-in-out infinite; }
+.blob-pink { width: 500px; height: 500px; background: #ec4899; bottom: -10%; right: -10%; animation: blob-float 6s ease-in-out infinite reverse; }
+
+/* --- CONTENT WRAPPER --- */
+.loading-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  animation: fadeInUp 1s ease-out;
-}
-
-/* ES Logo Container */
-.es-logo-container {
-  margin-bottom: 60px;
   position: relative;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  animation: logoFloat 2s ease-in-out infinite;
 }
 
-/* Remove complex outer circle, use simple container */
-.logo-outer-circle {
-  display: contents;
+/* --- LOGO ANIMATION (Matches AI Card) --- */
+/* UPDATED: Increased sizes here */
+.logo-wrapper {
+  position: relative;
+  width: 300px;  /* Increased from 240px */
+  height: 300px; /* Increased from 240px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
 }
 
-/* Remove complex inner background */
-.logo-inner-bg {
-  display: contents;
+.logo-circle {
+  width: 240px;  /* Increased from 200px */
+  height: 240px; /* Increased from 200px */
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  padding: 20px; /* Increased padding slightly */
 }
 
-/* ES Logo Image */
-.es-elements {
-  width: 120px;
-  height: 120px;
+.es-logo-img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  animation: logoScale 2s ease-in-out infinite;
+  animation: logo-pop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Company Details */
-.company-details {
-  color: #ffffff;
-  max-width: 600px;
+/* Rotating Rings */
+.logo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent; /* Slightly thicker border for larger size */
+  top: 50%; left: 50%;
 }
 
-.main-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin: 0 0 16px 0;
-  color: #ffffff;
+.ring-outer {
+  width: 100%; height: 100%;
+  transform: translate(-50%, -50%);
+  border-top-color: #537ac1; /* Brand Blue */
+  border-left-color: #537ac1;
+  opacity: 0.6;
+  animation: spin 3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.ring-inner {
+  width: 80%; height: 80%;
+  transform: translate(-50%, -50%);
+  border-bottom-color: #ec4899; /* Brand Pink */
+  border-right-color: #ec4899;
+  opacity: 0.6;
+  animation: spin 2s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+}
+
+/* --- TYPOGRAPHY --- */
+.text-wrapper {
+  animation: slide-up 0.8s ease-out 0.2s backwards;
+}
+
+.brand-name {
+  font-size: 2.8rem; /* Slightly larger text */
+  font-weight: 800;
+  color: #0f172a; /* Brand Dark */
+  margin: 0;
   letter-spacing: -1px;
-  animation: titleFade 1s ease-out 0.5s both;
 }
 
 .tagline {
   font-size: 1.2rem;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  line-height: 1.4;
-  animation: taglineFade 1s ease-out 0.8s both;
+  font-weight: 500;
+  color: #64748b;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
-/* Simple, Clean Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.gradient-text {
+  background: linear-gradient(90deg, #537ac1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+/* --- PROGRESS BAR --- */
+.progress-container {
+  width: 240px; /* Matches circle width */
+  height: 5px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  margin-top: 3rem;
+  overflow: hidden;
+  animation: fade-in 1s ease-out 0.5s backwards;
 }
 
-@keyframes logoScale {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #537ac1, #ec4899);
+  border-radius: 10px;
+  animation: loading-fill 3s ease-in-out forwards;
 }
 
-@keyframes titleFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* --- ANIMATIONS --- */
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-@keyframes taglineFade {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes loading-fill {
+  0% { width: 0%; }
+  30% { width: 40%; }
+  70% { width: 70%; }
+  100% { width: 100%; }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .es-logo-container {
-    padding: 30px;
-    margin-bottom: 50px;
-  }
+@keyframes logo-pop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -20px); }
+}
+
+/* Mobile Responsiveness - UPDATED SIZES */
+@media (max-width: 600px) {
+  .brand-name { font-size: 2rem; }
+  .tagline { font-size: 1rem; }
   
-  .es-elements {
-    width: 100px;
-    height: 100px;
-  }
+  /* Increased mobile sizes */
+  .logo-wrapper { width: 220px; height: 220px; } 
+  .logo-circle { width: 180px; height: 180px; padding: 15px; }
   
-  .main-title {
-    font-size: 2.5rem;
-  }
-  
-  .tagline {
-    font-size: 1.1rem;
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .es-logo-container {
-    padding: 25px;
-    margin-bottom: 40px;
-  }
-  
-  .es-elements {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .main-title {
-    font-size: 2rem;
-  }
-  
-  .tagline {
-    font-size: 1rem;
-    padding: 0 30px;
-  }
-}
-
-/* Loading Exit Animation */
-.effectivesolutions-loading.exit {
-  animation: exitFade 0.8s ease-in forwards;
-}
-
-@keyframes exitFade {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-}
-
-/* Accessibility Support */
-@media (prefers-reduced-motion: reduce) {
-  .loading-wrapper,
-  .es-logo-container,
-  .es-elements,
-  .main-title,
-  .tagline {
-    animation: none;
-  }
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  .effectivesolutions-loading {
-    background: #000000;
-  }
-  
-  .main-title,
-  .tagline {
-    color: #ffffff;
-  }
-  
-  .es-logo-container {
-    border: 2px solid #ffffff;
-  }
+  .progress-container { width: 180px; }
 }

@@ -1,154 +1,113 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './hero.css';
-import CallToAction from '../calltoaction/CallToAction';
+import award1 from '../../assets/award1.jpeg';
+import award2 from '../../assets/award2.jpeg';
+import ceo from '../../Pages/About/ceo&founder.jpg';
+import director from '../../Pages/About/director.jpg';
+// removed SSE image import since we'll use a letter avatar instead
 
 const Hero = () => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-
-  const textArray = [
-    'Passion into Professional Excellence',
-    'Ideas into Cutting-Edge Innovations',
-    'Vision into Industry-Leading Products',
-    'Complex Challenges into Simple IT Solutions'
+  const awards = [
+    {
+      img: award1,
+      heading: 'MedTech Entrepreneur Keerthi Kodithuwakku Recognized as the ICT Leader of the Year',
+      category: 'INDUSTRY LEADER • Awards',
+      desc: 'Proprietary Neural Frameworks',
+    },
+    {
+      img: award2,
+      heading: 'CEO of the Year Award 2022 — Artificial Intelligence Category',
+      category: 'TECH INNOVATION • Awards',
+      desc: 'Industrial IoT & Edge Solutions',
+    },
   ];
 
+  const [awardIndex, setAwardIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
   useEffect(() => {
-    let timeout;
-    const currentFullText = textArray[currentTextIndex];
-    
-    if (isTyping) {
-      if (displayText.length < currentFullText.length) {
-        timeout = setTimeout(() => {
-          setDisplayText(currentFullText.slice(0, displayText.length + 1));
-        }, 80);
-      } else {
-        setTimeout(() => setIsTyping(false), 2000);
-      }
-    } else {
-      if (displayText.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, 40);
-      } else {
-        setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
-        setIsTyping(true);
-      }
-    }
+    const interval = setInterval(() => {
+      setIsFading(true);
+      const t = setTimeout(() => {
+        setAwardIndex((i) => (i + 1) % awards.length);
+        setIsFading(false);
+        clearTimeout(t);
+      }, 620);
+    }, 3600);
 
-    return () => clearTimeout(timeout);
-  }, [displayText, isTyping, currentTextIndex, textArray]);
-
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="hero-container">
-      {/* Animated Background Elements */}
-      <div className="background-elements">
-        <div className="grid-pattern"></div>
-        <div className="bg-element bg-element-1"></div>
-        <div className="bg-element bg-element-2"></div>
-        <div className="bg-element bg-element-3"></div>
-      </div>
+    <section className="hero-section exact-hero" id="home">
+      <div className="hero-inner">
 
-      {/* Hero Content */}
-      <div className="hero-content">
-        <div className="content-wrapper">
-          {/* Left Content */}
-          <div className="content-left">
-            <h2 className="hero-title">
-              Turning <span className="title-gradient">Complex</span><br />
-              <span className="title-gradient">Challenges</span> into Simple<br />
-              <span className="title-gradient">IT Solutions</span>
-            </h2>
-            
-            <div className="rotating-text-container">
-              <span className="rotating-text">
-                Transforming <span className="rotating-highlight">{displayText}</span>
-                <span className="cursor">|</span>
-              </span>
+        {/* LEFT: Title + Subtitle + Globe */}
+        <div className="hero-left">
+          <div className="title-block">
+            <span className="pre">We are</span>
+
+            <h1 className="main-title">
+              <span className="word-effective">Effective</span>
+              <span className="word-solutions">Solutions.</span>
+            </h1>
+
+            <div className="subtitle">
+              <span className="subtitle-line">Turning Complex Challenges into</span>
+              <span className="subtitle-line"><span className="seamless">Seamless</span> IoT Solutions, AI Integration, Biomedical Solutions</span>
+              <p className="subtitle-desc">We design and deploy IoT, AI, and biomedical solutions that solve complex challenges at scale.</p>
+
+              <p className="hero-tagline">“We solve. We simplify. We’re effective”</p>
+
+              {/* Leadership row */}
+              <div className="leadership-row">
+                <div className="avatar-stack" role="list" aria-label="Leadership">
+                  <Link to="/about#team" className="avatar" role="listitem" aria-label="Keerthi Kodithuwakku">
+                    <img src={ceo} alt="Keerthi Kodithuwakku" />
+                  </Link>
+                  <Link to="/about#team" className="avatar" role="listitem" aria-label="Heminda Jayaweera">
+                    <img src={director} alt="Heminda Jayaweera" />
+                  </Link>
+                  <Link to="/about#team" className="avatar letter-avatar" role="listitem" aria-label="R">
+                    <span>R</span>
+                  </Link>
+                  <Link to="/about#team" className="avatar avatar-count" role="listitem" aria-label="Meet the team" title="Meet the team">
+                    <span className="count">20+</span>
+                    <span className="sr-only">Meet the team behind our success</span>
+                  </Link>
+                </div>
+
+                <div className="leadership-label">
+                  <Link to="/about#team" className="label-text link">Meet the leadership</Link>
+                </div>
+              </div>
             </div>
-            
-            <p className="hero-description">
-              We empower innovative Sri Lankans to lead industries worldwide through 
-              cutting-edge Biomedical, IoT, and Software Solutions with patents secured 
-              in USA, Japan, and Sri Lanka.
-            </p>
 
-            {/* CTA Buttons */}
-            
           </div>
 
-          {/* Right Content - 3D Globe */}
-          <div className="content-right">
-            <div className="globe-container">
-              {/* Floating Tech Badges */}
-              <div className="tech-badge tech-badge-ai">AI/ML</div>
-              <div className="tech-badge tech-badge-iot">IoT</div>
-              <div className="tech-badge tech-badge-5g">MedTech</div>
-              <div className="tech-badge tech-badge-cloud">Cloud</div>
 
-              {/* Main Globe */}
-              <div className="globe">
-                <div className="globe-inner">
-                  {/* Continents */}
-                  <div className="continent continent-1"></div>
-                  <div className="continent continent-2"></div>
-                  <div className="continent continent-3"></div>
-                  <div className="continent continent-4"></div>
-                  <div className="continent continent-5"></div>
-                  <div className="continent continent-6"></div>
-                </div>
+        </div>
 
-                {/* Country Markers */}
-                <div className="marker marker-usa">
-                  <div className="marker-dot"></div>
-                  <div className="marker-pulse"></div>
-                </div>
-                <div className="marker marker-japan">
-                  <div className="marker-dot"></div>
-                  <div className="marker-pulse"></div>
-                </div>
-                <div className="marker marker-srilanka">
-                  <div className="marker-dot"></div>
-                  <div className="marker-pulse"></div>
-                </div>
-              </div>
+        {/* RIGHT: Industry recognition */}
+        <div className="hero-right">
+          <div className="industry-header">
+            <span className="line"></span>
+            <span className="label">HONORS & RECOGNITION</span>
+            <span className="line"></span>
+          </div>
 
-              {/* Connection Lines */}
-              <div className="connection-lines">
-                <div className="line line-1"></div>
-                <div className="line line-2"></div>
-                <div className="line line-3"></div>
-                <div className="line line-4"></div>
-                <div className="line line-5"></div>
-              </div>
+          <h3 className="award-heading">{awards[awardIndex].heading}</h3>
+
+          <div className="award-display" aria-live="polite">
+            <div className={`award-card ${isFading ? 'fade-out' : 'fade-in'}`}>
+              <img src={awards[awardIndex].img} alt={awards[awardIndex].heading} className="award-thumb" />
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="scroll-indicator" >
-        <div className="scroll-mouse">
-          <div className="scroll-wheel"></div>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

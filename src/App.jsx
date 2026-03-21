@@ -1,25 +1,25 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import LoadingScreen from './hooks/LoadingScreen';
 import './App.css';
-import Navigation from './components/navigation/navigation';
-import Hero from './components/hero/hero';
-import TrustedBy from './components/trustedby/TrustedBy';
-import WhatWeDo from './components/whatwedo/WhatWeDo';
-import OurClients from './components/clients/OurClients';
-import FeaturedProject from './components/featuredprojects/FeaturedProjects';
-import WhyChooseUs from './components/whychooseus/WhyChooseUs';
-import CallToAction from './components/calltoaction/CallToAction';
-import Footer from './components/footer/Footer';
-import AboutUs from './pages/about/AboutUs';
-import Service from './pages/services/Services';
-// import ProjectsPage from './pages/projects/Projects';
-import Blog from './pages/blogs/Blogs';
-import Careers from './pages/careers/Career';
+import Navigation from './Components/navigation/navigation';
+import Hero from './Components/hero/hero';
+import TrustedBy from './Components/trustedby/TrustedBy';
+import WhatWeDo from './Components/whatwedo/WhatWeDo';
+import OurClients from './Components/Clients/OurClients';
+import FeaturedProject from './Components/Featuredprojects/FeaturedProjects';
+import WhyChooseUs from './Components/WhyChooseUs/WhyChooseUs';
+import CallToAction from './Components/CallToAction/CallToAction';
+import Footer from './Components/Footer/Footer';
+import AboutUs from './Pages/About/AboutUs';
+import Service from './Pages/Services/Services';
+// import ProjectsPage from './Pages/Projects/Projects';
+import Blog from './Pages/Blogs/Blogs';
+import Careers from './Pages/Careers/Career';
 
-import Gallery from './components/gallery/Gallery';
+import Gallery from './Components/gallery/Gallery';
 
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './Components/ScrollToTop';
 
 
 // create page components
@@ -79,6 +79,23 @@ function App() {
     };
   }, []);
 
+  const ScrollToHash = () => {
+    const location = useLocation();
+    useEffect(() => {
+      if (location.pathname === '/' && location.state && location.state.scrollTo) {
+        const id = location.state.scrollTo;
+        // small delay so page has rendered
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 60);
+        // clear history state to avoid repeated scrolls
+        window.history.replaceState({}, '', window.location.pathname + window.location.search + window.location.hash);
+      }
+    }, [location]);
+    return null;
+  };
+
   return (
     <Router>
       <div className="App">
@@ -97,6 +114,7 @@ function App() {
           <Route path="/contact" element={<CallToAction />} />
           <Route path="/careers" element={<Careers />} />
         </Routes>
+        <ScrollToHash />
         </main>
         <ScrollToTop />
         <Footer />

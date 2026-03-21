@@ -28,7 +28,7 @@
 /* Main Navigation */
 .navigation {
   position: fixed;
-  top: 1rem;
+  top: 0.75rem; /* slightly closer to top */
   left: 1rem;
   right: 1rem;
   z-index: var(--z-fixed);
@@ -43,9 +43,10 @@
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   border-radius: 1rem;
-  box-shadow: var(--shadow-lg);
+  /* Softer, subtler shadow for a cleaner header */
+  box-shadow: 0 6px 12px rgba(16,24,40,0.04);
   border: 1px solid var(--border-light);
-  padding: 20px var(--space-6);
+  padding: 16px var(--space-6); /* slightly reduced vertical padding */
 }
 
 .navigation__content {
