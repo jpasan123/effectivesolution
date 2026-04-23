@@ -32,7 +32,7 @@ const Footer = () => {
             <div className="footer-contact-info">
               <div className="contact-row">
                 <MapPin size={16} className="contact-icon" />
-                <span>Colombo, Sri Lanka</span>
+                <span>Trace Expert City, Bay 9 AC19, Colombo 01000</span>
               </div>
               <div className="contact-row">
                 <Mail size={16} className="contact-icon" />

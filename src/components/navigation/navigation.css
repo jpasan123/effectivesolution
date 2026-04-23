@@ -14,7 +14,7 @@
 }
 
 /* --- Navigation variables and Container --- */
-:root { --nav-height: 88px; }
+:root { --nav-height: 80px; }
 
 .navigation {
   position: fixed;
@@ -25,21 +25,21 @@
   font-family: 'Red Hat Display', sans-serif;
   transition: all 0.3s ease;
   background-color: transparent;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
 }
 
 @media (max-width: 768px) {
-  :root { --nav-height: 72px; }
+  :root { --nav-height: 68px; }
 } 
 
 .navigation--scrolled {
-  padding-top: 0.5rem;
+  padding: 0.55rem 2rem;
 }
 
 .navigation__container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.8rem 2.5rem;
+  padding: 0.65rem 2.25rem;
   background: linear-gradient(
     120deg,
     rgba(220, 230, 255, 0.95) 0%,
@@ -76,17 +76,17 @@
 }
 
 .logo {
-  width: 40px; /* increased size */
-  height: 40px; /* increased size */
+  width: 34px;
+  height: 34px;
   object-fit: contain;
 }
 
 @media (max-width: 768px) {
-  .logo { width: 32px; height: 32px; }
+  .logo { width: 28px; height: 28px; }
 }
 
 .logo__text {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   display: flex;
   gap: 4px;
@@ -101,7 +101,7 @@
 .navigation__menu {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2.2rem;
   background: transparent;
   padding: 0;
 }
@@ -110,7 +110,7 @@
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.95rem;
   padding: 0;
   transition: color 0.2s ease;
   position: relative;
@@ -136,7 +136,7 @@
   
   font-family: inherit;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   letter-spacing: 0.02em;
   
   /* Centering Text */
@@ -146,7 +146,7 @@
   gap: 0.5rem;
   
   /* Pill Shape */
-  padding: 0.7rem 1.8rem;
+  padding: 0.55rem 1.5rem;
   border-radius: 100px;
   
   cursor: pointer;
@@ -249,10 +249,10 @@
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
   .navigation {
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 1.5rem;
   }
   .navigation__container {
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.35rem;
   }
   .navigation__menu {
     gap: 1.5rem;

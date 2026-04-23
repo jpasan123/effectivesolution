@@ -194,7 +194,7 @@ const Careers = () => {
                         <div className="step-number">4</div>
                         <div className="step-body">
                           <h4>Join us</h4>
-                          <p>You will receive an offer of employment. Accept it, and you officially become a Calceyite.</p>
+                          <p>You will receive an offer of employment. Once accepted, you officially become part of the Effective Solutions team.</p>
                         </div>
                       </li>
                     </ol>

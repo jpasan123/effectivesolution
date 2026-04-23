@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import './hero.css';
 import award1 from '../../assets/award1.jpeg';
 import award2 from '../../assets/award2.jpeg';
-import ceo from '../../pages/About/ceo&founder.jpg';
-import director from '../../pages/About/director.jpg';
+import ceo from '../../Pages/About/ceo&founder.jpg';
+import director from '../../Pages/About/director.jpg';
 // removed SSE image import since we'll use a letter avatar instead
 
 const Hero = () => {
@@ -56,7 +56,7 @@ const Hero = () => {
             <div className="subtitle">
               <span className="subtitle-line">Turning Complex Challenges into</span>
               <span className="subtitle-line"><span className="seamless">Seamless</span> IoT Solutions, AI Integration, Biomedical Solutions</span>
-              <p className="subtitle-desc">We design and deploy IoT, AI, and biomedical solutions that solve complex challenges at scale.</p>
+              
 
               <p className="hero-tagline">“We solve. We simplify. We’re effective”</p>
 

@@ -56,7 +56,7 @@ const Hero = () => {
             <div className="subtitle">
               <span className="subtitle-line">Turning Complex Challenges into</span>
               <span className="subtitle-line"><span className="seamless">Seamless</span> IoT Solutions, AI Integration, Biomedical Solutions</span>
-              <p className="subtitle-desc">We design and deploy IoT, AI, and biomedical solutions that solve complex challenges at scale.</p>
+              
 
               <p className="hero-tagline">“We solve. We simplify. We’re effective”</p>
 

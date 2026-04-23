@@ -26,7 +26,7 @@
   /* Changed from 1400px to 96% to allow it to stretch wide */
   width: 100%;
   max-width: 1800px; /* Increased max-limit */
-  margin: 0.5rem auto 1.2rem auto;
+  margin: 3rem auto 1.2rem auto;
   padding: 0; /* Parent gallery-section has padding now */
 }
 
